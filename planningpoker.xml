@@ -45,9 +45,9 @@
 
 <p>
 <input class="button" type="button" value="0" id="showParticipants" style="visibility:hidden;" onClick="showParticipants()"/>
-<input class="button" type="button" value="1/2" id="showParticipants" style="visibility:hidden;" onClick="showParticipants()"/>
-<input class="button" type="button" value="1" id="showParticipants" style="visibility:hidden;" onClick="showParticipants()"/>
-<input class="button" type="button" value="2" id="showParticipants" style="visibility:hidden;" onClick="showParticipants()"/>
+<input class="button" type="button" value="1/2" id="showParticipants" onClick="showParticipants()"/>
+<input class="button" type="button" value="1" id="showParticipants" onClick="showParticipants()"/>
+<input class="button" type="button" value="2" id="showParticipants" onClick="showParticipants()"/>
 </p>
 
 <div id="participantsDiv"></div>
