@@ -62,7 +62,7 @@ function setState(i) {
   var participants = gapi.hangout.getParticipants();
 
   var retVal = '<p>Participants: </p><ul>';
-  gapi.hangout.data.submitDelta( {participant.id: i , hans: "ads"} );
+  gapi.hangout.data.setValue( participant.id , i} );
 
   for (var index in participants) {
     var participant = participants[index];
