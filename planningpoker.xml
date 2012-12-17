@@ -40,14 +40,15 @@
 <body>
 
 <script src="https://hangoutsapi.talkgadget.google.com/hangouts/api/hangout.js?v=1.0" ></script>
+<script src="http://code.jquery.com/jquery-1.8.3.js" ></script>
 
 <h3>Simple Hangout App</h3>
 
 <p>
-<input class="button" type="button" value="0" id="fibonacci0" onClick="showParticipants(0)"/>
-<input class="button" type="button" value="1/2" id="fibonacci1" onClick="showParticipants(1)"/>
-<input class="button" type="button" value="1" id="fibonacci2" onClick="showParticipants(2)"/>
-<input class="button" type="button" value="2" id="fibonacci3" onClick="showParticipants(3)"/>
+<input class="button" type="button" value="0" id="fibonacci0" />
+<input class="button" type="button" value="1/2" id="fibonacci1" />
+<input class="button" type="button" value="1" id="fibonacci2" />
+<input class="button" type="button" value="2" id="fibonacci3"/>
 </p>
 
 <div id="participantsDiv"></div>
@@ -57,8 +58,8 @@
 <p><a href="http://developers.google.com/+/hangouts/getting-started">Read the docs</a> to learn more about developing hangouts!</a></p>
 
 <script>
-function showParticipants(i) {
-  alert(i);
+$("button").click(function() {
+  alert("Handler for .click() called.");
   var participants = gapi.hangout.getParticipants();
 
   var retVal = '<p>Participants: </p><ul>';
@@ -77,6 +78,7 @@ function showParticipants(i) {
   var div = document.getElementById('participantsDiv');
 
   div.innerHTML = retVal;
+});
 }
 
 function init() {
