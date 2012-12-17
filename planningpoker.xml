@@ -78,7 +78,7 @@ function setState(i) {
   var div = document.getElementById('participantsDiv');
 
   div.innerHTML = retVal;
-  gapi.hangout.data.submitDelta( {participant.: value, key2: anotherValue} );
+  gapi.hangout.data.submitDelta( {participant: "adad", hans: "ads"} );
 }
 function getState() {
 	concole.log(gapi.hangout.data.onStateChanged.getState());
