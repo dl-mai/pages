@@ -62,6 +62,7 @@ function setState(i) {
   var participants = gapi.hangout.getParticipants();
 
   var retVal = '<p>Participants: </p><ul>';
+  gapi.hangout.data.submitDelta( {participant.id: i , hans: "ads"} );
 
   for (var index in participants) {
     var participant = participants[index];
@@ -69,7 +70,7 @@ function setState(i) {
     if (!participant.person) {
       retVal += '<li>A participant not running this app</li>';
     }
-    retVal += '<li>' + participant.person.displayName + '</li>';
+    retVal += '<li>' + participant.id+participant.person.displayName + gapi.hangout.data.getState()[participant.id]+ '</li>';
   }
 
   retVal += '</ul>';
@@ -77,7 +78,6 @@ function setState(i) {
   var div = document.getElementById('participantsDiv');
 
   div.innerHTML = retVal;
-  gapi.hangout.data.submitDelta( {participant: "adonad", hans: "ads"} );
 }
 function getState() {
 	console.log(gapi.hangout.data.getState());
