@@ -48,7 +48,7 @@
 <input class="button" type="button" value="1/2" id="fibonacci1" onClick="setSate(1)"/>
 <input class="button" type="button" value="1" id="fibonacci2" onClick="setSate(2)"/>
 <input class="button" type="button" value="2" id="fibonacci3" onClick="setSate(3)"/>
-<input class="button" type="button" value="Receive" id="fibonacci3" onClick="getState"/>
+<input class="button" type="button" value="Receive" id="fibonacci3" onClick="getState()"/>
 </p>
 
 <div id="participantsDiv"></div>
@@ -58,7 +58,7 @@
 <p><a href="http://developers.google.com/+/hangouts/getting-started">Read the docs</a> to learn more about developing hangouts!</a></p>
 
 <script>
-function setState(var i) {
+function setState(i) {
   alert(i)
   var participants = gapi.hangout.getParticipants();
 
