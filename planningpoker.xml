@@ -45,9 +45,9 @@
 
 <p>
 <input class="button" type="button" value="0" id="fibonacci0" style="visibility:hidden;" onClick="setState(0)"/>
-<input class="button" type="button" value="1/2" id="fibonacci1" onClick="setSate(1)"/>
-<input class="button" type="button" value="1" id="fibonacci2" onClick="setSate(2)"/>
-<input class="button" type="button" value="2" id="fibonacci3" onClick="setSate(3)"/>
+<input class="button" type="button" value="1/2" id="fibonacci1" onClick="setState(1)"/>
+<input class="button" type="button" value="1" id="fibonacci2" onClick="setState(2)"/>
+<input class="button" type="button" value="2" id="fibonacci3" onClick="setState(3)"/>
 <input class="button" type="button" value="Receive" id="fibonacci3" onClick="getState()"/>
 </p>
 
@@ -81,7 +81,7 @@ function setState(i) {
   gapi.hangout.data.submitDelta( {participant: "adad", hans: "ads"} );
 }
 function getState() {
-	concole.log(gapi.hangout.data.onStateChanged.getState());
+	console.log(gapi.hangout.data.onStateChanged.getState());
 }
 function init() {
   // When API is ready...                                                         
