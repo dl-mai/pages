@@ -44,9 +44,10 @@
 <h3>Simple Hangout App</h3>
 
 <p>
-<input class="button" type="button" value="Show participants!" id="showParticipants" 
-    style="visibility:hidden;"
-    onClick="showParticipants()"/>
+<input class="button" type="button" value="0" id="showParticipants" style="visibility:hidden;" onClick="showParticipants()"/>
+<input class="button" type="button" value="1/2" id="showParticipants" style="visibility:hidden;" onClick="showParticipants()"/>
+<input class="button" type="button" value="1" id="showParticipants" style="visibility:hidden;" onClick="showParticipants()"/>
+<input class="button" type="button" value="2" id="showParticipants" style="visibility:hidden;" onClick="showParticipants()"/>
 </p>
 
 <div id="participantsDiv"></div>
