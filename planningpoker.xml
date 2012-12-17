@@ -1,104 +1,33 @@
 
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- /*
+ * Copyright (c) 2011-2012 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */ -->
+
 <Module>
-	<!-- Licensed under the Apache License, Version 2.0 (the "License"); you may not
-	 * use this file except in compliance with the License. You may obtain a copy of
-	 * the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-	 * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-	 * License for the specific language governing permissions and limitations under
-	 * the License
-	-->
-	<ModulePrefs title="Hangout Starter">
-		<Require feature="rpc" />
-		<Require feature="views" />
-		<Require feature="locked-domain" />
+	<ModulePrefs title="Yes/No/Maybe" height="100" width="550">
+		<Require feature="dynamic-height"/>
+		<Require feature="rpc"/>
 	</ModulePrefs>
-	<Content type="html"><![CDATA[     
+	<Content type="html"><![CDATA[
+  <!DOCTYPE html>
+  <script type="text/javascript" src="//www.google.com/jsapi"></script>
+  <script type="text/javascript">google.load("jquery", "1.3.2");</script>
+  <script type="text/javascript"
+  src="//hangoutsapi.talkgadget.google.com/hangouts/api/hangout.js?v=1.2"></script>
+  <script type="text/javascript" src="//plushangoutstartershadow.appspot.com/ggs/yesnomaybe.js"></script>
+  <link type="text/css" rel="stylesheet" href="//hangoutsapi.appspot.com/static/yesnomaybe/yesnomaybe.css" />
 
-<html>
-<style type="text/css">
-<!--
-.button {
-  border-radius: 3px;
-  -moz-border-radius: 3px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
-  background: -moz-linear-gradient(top, #fff, #ddd);  
-  border: 1px solid #bbb;
-}
-
-.button:active {
-	background: -webkit-gradient(linear, left top, left bottom, from(#aaa), to(#333)); 
-	background: -moz-linear-gradient(bottom, #ddd, #aaa); }
-
--->
-</style>
-<body>
-
-<script src="https://hangoutsapi.talkgadget.google.com/hangouts/api/hangout.js?v=1.3" ></script>
-
-<h3>Simple Hangout App</h3>
-
-<p>
-<input class="button" type="button" value="0" id="fibonacci0" style="" onClick="setState(0)"/>
-<input class="button" type="button" value="1/2" id="fibonacci1" onClick="setState(1)"/>
-<input class="button" type="button" value="1" id="fibonacci2" onClick="setState(2)"/>
-<input class="button" type="button" value="2" id="fibonacci3" onClick="setState(3)"/>
-<input class="button" type="button" value="Receive" id="fibonacci3" onClick="getState()"/>
-</p>
-
-<div id="participantsDiv"></div>
-
-<hr>
-
-<p><a href="http://developers.google.com/+/hangouts/getting-started">Read the docs</a> to learn more about developing hangouts!</a></p>
-
-<script>
-function setState(i) {
-  var participants = gapi.hangout.getParticipants();
-  var localParticipantId = gapi.hangout.getLocalParticipantId();
-  var retVal = '<p>Participants: </p><ul>';
-  console.log(localParticipantId);
-  gapi.hangout.data.setValue( "hans" , i );
-
-  for (var index in participants) {
-    var participant = participants[index];
-
-    if (!participant.person) {
-      retVal += '<li>A participant not running this app</li>';
-    }
-    retVal += '<li>' + participant.id+participant.person.displayName + gapi.hangout.data.getState()[participant.id]+ '</li>';
-  }
-
-  retVal += '</ul>';
-
-  var div = document.getElementById('participantsDiv');
-
-  div.innerHTML = retVal;
-}
-function getState() {
-	console.log(gapi.hangout.data.getState());
-}
-function init() {
-  // When API is ready...
-  gapi.hangout.onApiReady.add(
-      function(eventObj) {
-        if (eventObj.isApiReady) {
-          document.getElementById('showParticipants')
-            .style.visibility = 'visible';
-        }
-      });
-}
-
-// Wait for gadget to load.                                                       
-gadgets.util.registerOnLoadHandler(init);
-</script>
-</body>
-]]>
-	</Content>
+]]></Content>
 </Module>
 
