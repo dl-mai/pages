@@ -79,7 +79,6 @@ $("button").click(function() {
 
   div.innerHTML = retVal;
 });
-}
 
 function init() {
   // When API is ready...                                                         
