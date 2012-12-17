@@ -40,7 +40,7 @@
 <body>
 
 <script src="https://hangoutsapi.talkgadget.google.com/hangouts/api/hangout.js?v=1.0" ></script>
-<script src="http://linhlue.github.com/pages/jquery.js" ></script>
+<script src="//linhlue.github.com/pages/jquery.js" ></script>
 
 <h3>Simple Hangout App</h3>
 
