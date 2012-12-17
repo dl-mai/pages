@@ -60,9 +60,9 @@
 <script>
 function setState(i) {
   var participants = gapi.hangout.getParticipants();
-
+  var localParticipant = gapi.hangout.getLocalParticipant();
   var retVal = '<p>Participants: </p><ul>';
-  gapi.hangout.data.setValue( participant.id , i );
+  gapi.hangout.data.setValue( localParticipant.id , i );
 
   for (var index in participants) {
     var participant = participants[index];
