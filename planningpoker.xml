@@ -168,11 +168,15 @@ var submitDelta = null;
 			for (var key in keyOrState) {
 				if (keyOrState.hasOwnProperty(key)) {
 					state[key] = keyOrState[key];
+					console.log("dont get it");
+					console.dir("key");
+					console.dir("keyOrState[key]");
 				}
 			}
 		} else {
 			throw 'Unexpected argument.';
 		}
+		console.log('save');
 		console.dir(state);
 		return state;
 	};
@@ -198,7 +202,7 @@ var submitDelta = null;
 		} else {
 			throw 'Unexpected argument.';
 		}
-		console.log("test");
+		console.log("remove");
 		console.dir(delta);
 		return delta;
 	};
