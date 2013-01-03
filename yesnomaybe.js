@@ -162,6 +162,7 @@ var submitDelta = null;
 		} else {
 			throw 'Unexpected argument.';
 		}
+		console.log(state);
 		return state;
 	};
 
