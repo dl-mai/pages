@@ -121,7 +121,6 @@ function defer(func) {
  * @return {!string} A new key for use in the shared state.
  */
 function makeUserKey(id, key) {
-	console.log(id+ ':'+ key);
 	return id + ':' + key;
 }
 
@@ -174,6 +173,7 @@ var submitDelta = null;
 		} else {
 			throw 'Unexpected argument.';
 		}
+		console.log("hans"+state);
 		return state;
 	};
 
