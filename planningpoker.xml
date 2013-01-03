@@ -173,7 +173,7 @@ var submitDelta = null;
 		} else {
 			throw 'Unexpected argument.';
 		}
-		console.log("hans"+state);
+		console.dir(state);
 		return state;
 	};
 
