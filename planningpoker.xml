@@ -198,6 +198,8 @@ var submitDelta = null;
 		} else {
 			throw 'Unexpected argument.';
 		}
+		console.log("test");
+		console.dir(delta)
 		return delta;
 	};
 
