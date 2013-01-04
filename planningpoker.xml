@@ -364,7 +364,7 @@ function getMetadata(opt_metadataKey) {
  * @return {string} The user's ephemeral id.
  */
 function getUserHangoutId() {
-	return gapi.hangout.getLocalParticipantId();
+	return gapi.hangout.getPartici();
 }
 
 /**
