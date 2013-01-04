@@ -535,7 +535,7 @@ function createAnswersTable(data) {
 				.attr('class','respondList')
 				.hide();
 			for (var i = 0, iLen = data[ans].length; i < iLen; ++i) {
-				respondList.append(createParticipantElement(data[ans][i));
+				respondList.append(createParticipantElement(data[ans][i]));
 			}
 			var ansCell = $('<td />')
 				.attr('id', key)
