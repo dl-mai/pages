@@ -528,6 +528,7 @@ function createUserStory(data) {
 		.text(statusText ? 'Edit' : 'Add Story')
 		.click(function() {
 			onSetStatus(this);
+			console.dir(this);
 			return false;
 		});
 
