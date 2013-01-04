@@ -491,6 +491,14 @@ function prepareAppDOM() {
 		}).hide();
 
 	container_ = $('<div />');
+
+	var ansLink = $('<a />')
+		.attr('href', '#')
+		.text(DEFAULT_STATUS[ans])
+		.append(numAnswered)
+		.click(function() {
+			return false;
+		});
 	var showBtn = $('<div />')
 		.addClass('button')
 
