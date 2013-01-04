@@ -372,6 +372,7 @@ function render() {
 	data[Answers.MAYBE] = [];
 	data[Answers.UNKNOWN] = [];
 	data[Answers.COFFEE] = [];
+	data[Answers.ZERO] = [];
 
 	var myId = getUserHangoutId();
 	for (var i = 0, iLen = participants_.length; i < iLen; ++i) {
