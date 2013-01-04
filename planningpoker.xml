@@ -267,8 +267,10 @@ function onAnswer(newAnswer) {
 
 	if (current === newAnswer) {
 		removeValue(answerKey);
+		setVoteStatus("FALSE")
 	} else {
 		saveValue(answerKey, newAnswer);
+		setVoteStatus("TRUE");
 	}
 }
 
