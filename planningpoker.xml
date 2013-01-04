@@ -506,7 +506,7 @@ function createAnswersTable(data) {
 	for (var key in Answers) {
 		if (Answers.hasOwnProperty(key)) {
 			var ans = Answers[key];
-
+			console.dir(key);
 			var numAnswered = $('<span />')
 				.text(' (' + data[ans].length + ')');
 			var ansLink = $('<a />')
