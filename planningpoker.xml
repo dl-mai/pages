@@ -174,7 +174,7 @@ var submitDelta = null;
 		var state = null;
 		if (typeof keyOrState === 'string') {
 			state = {};
-			state[keyOrState] = opt_value;
+			state[keyOrState]= opt_value;
 		} else if (typeof keyOrState === 'object' && null !== keyOrState) {
 			// Ensure that no prototype-level properties are hitching a ride.
 			state = {};
