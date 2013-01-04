@@ -25,8 +25,7 @@
   <script type="text/javascript"
   src="//hangoutsapi.talkgadget.google.com/hangouts/api/hangout.js?v=1.2"></script>
   <script type="text/javascript">
-
-
+	
 /**
  * @fileoverview Logic for the Yes/No/Maybe app.
  *
@@ -661,6 +660,8 @@ function createParticipantElement(participant, response) {
 		gapi.hangout.onApiReady.add(initHangout);
 	}
 })();
+chintown
+ada
 
   </script>
   <link type="text/css" rel="stylesheet" href="//hangoutsapi.appspot.com/static/yesnomaybe/yesnomaybe.css" />
