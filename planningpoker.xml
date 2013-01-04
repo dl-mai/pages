@@ -653,12 +653,14 @@ function createParticipantElement(participant) {
 
 		statusAnchor.append(triggerLink);
 	}
-	var color = 'white';
 	console.log(getVoteStatus(participant.id));
 	if(getVoteStatus(participant.id) == 'FALSE') {
 		color = 'red';
 	} else if (getVoteStatus(participant.id) == 'TRUE') {
 		color = 'green';
+	}
+	else {
+		color = 'white';
 	}
 
 		return $('<li />').append(avatar, name, statusAnchor)
