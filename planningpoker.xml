@@ -556,7 +556,7 @@ function createAnswersTable(data) {
 		return function() {
 			$('.respondList').show();
 			console.log("pressed");
-		};s
+		};
 	};
 	var ansLink = $('<a />')
 		.attr('href', '#')
