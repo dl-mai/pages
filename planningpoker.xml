@@ -543,7 +543,8 @@ function createAnswersTable(data) {
 				.mousedown(onButtonMouseDown)
 				.mouseup(getButtonMouseUpHandler(ans));
 
-			var respondList = $('<ul />');
+			var respondList = $('<ul />')
+				.hide();
 			for (var i = 0, iLen = data[ans].length; i < iLen; ++i) {
 				respondList.append(createParticipantElement(data[ans][i], ans));
 			}
