@@ -512,10 +512,9 @@ function prepareAppDOM() {
 }
 
 /**
- * Creates the DOM element that shows the button for each response and displays
- * each participant under his answer.
+ * Creates the DOM element that shows the current user story
  * @param {!Object.<!string, *>} data The information used to populate the
- *     table.
+ *     user story.
  * @return {Element} The DOM element displaying the app's main interface.
  */
 
