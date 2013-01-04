@@ -549,7 +549,7 @@ function createAnswersTable(data) {
 	var participantRow = $('<tr />');
 	for( var participant in participants_){
 		console.dir(participants_);
-		participantRow.append(createParticipantElement(participant, Answers['ZERO']));
+		participantRow.append(createParticipantElement(participant, {}));
 	}
 	var controlRow = $('<tr />');
 	var hideButtonHandler = function() {
