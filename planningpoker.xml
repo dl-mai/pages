@@ -546,6 +546,8 @@ function createAnswersTable(data) {
 			buttonRow.append(ansCell);
 		}
 	}
+	var participantRow = $('<tr />');
+	participantRow.append(createAnswersTable());
 	var controlRow = $('<tr />');
 	var hideButtonHandler = function() {
 		return function() {
