@@ -501,6 +501,7 @@ function prepareAppDOM() {
 		});
 	var showBtn = $('<div />')
 		.addClass('button')
+		.append(ansLink);
 
 	var body = $('body');
 	body.mousedown(function(e) {
