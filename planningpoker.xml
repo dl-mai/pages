@@ -549,6 +549,7 @@ function createAnswersTable(data) {
 	var hideButtonHandler = function() {
 		return function() {
 			respondList.show();
+			console.log("pressed");
 		};
 	};
 	var ansLink = $('<a />')
