@@ -551,6 +551,7 @@ function createAnswersTable(data) {
 	for (var i = 0, iLen = participants_.length; i < iLen; ++i) {
 		participantList.append(createParticipantElement(participants_[i]));
 	}
+	participantRow.append(participantList);
 	var controlRow = $('<tr />');
 	var hideButtonHandler = function() {
 		return function() {
