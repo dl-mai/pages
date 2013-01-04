@@ -364,6 +364,7 @@ function render() {
 	data[Answers.YES] = [];
 	data[Answers.NO] = [];
 	data[Answers.MAYBE] = [];
+	data[Answers.UNKNOWN] = [];
 
 	var myId = getUserHangoutId();
 	for (var i = 0, iLen = participants_.length; i < iLen; ++i) {
