@@ -37,7 +37,8 @@ var Answers = {
 	YES: 'y',
 	NO: 'n',
 	MAYBE: 'm',
-	UNKNOWN: 'u'
+	UNKNOWN: 'u',
+	COFFEE: 'c'
 };
 var HOST = '//hangoutsapi.appspot.com/static/yesnomaybe';
 
@@ -51,7 +52,8 @@ var DEFAULT_STATUS = {};
 DEFAULT_STATUS[Answers.YES] = 'Yes';
 DEFAULT_STATUS[Answers.NO] = 'No';
 DEFAULT_STATUS[Answers.MAYBE] = 'Maybe';
-DEFAULT_STATUS[Answers.UNKNOWN] = 'BLABLA';
+DEFAULT_STATUS[Answers.UNKNOWN] = 'No idea!';
+DEFAULT_STATUS[Answers.COFFEE] = 'Need Coffee!';
 
 /**
  * The maximum length allowed for user status.
@@ -367,6 +369,7 @@ function render() {
 	data[Answers.NO] = [];
 	data[Answers.MAYBE] = [];
 	data[Answers.UNKNOWN] = [];
+	data[Answers.COFFEE] = [];
 
 	var myId = getUserHangoutId();
 	for (var i = 0, iLen = participants_.length; i < iLen; ++i) {
