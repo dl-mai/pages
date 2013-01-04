@@ -545,13 +545,9 @@ function createAnswersTable(data) {
 			for (var i = 0, iLen = data[ans].length; i < iLen; ++i) {
 				respondList.append(createParticipantElement(data[ans][i], ans));
 			}
-			console.log("answers: " + data.length);
-			console.dir(data);
-			console.dir(Answers);
-			console.dir(Object.keys(Answers).length);
 			var ansCell = $('<td />')
 				.attr('id', key)
-				.css('width', (100/9)+'%')
+				.css('width', (100/Object.keys(Answers).length)+'%')
 				.append(ansBtn, respondList);
 
 			// Add list of participants below each button.
