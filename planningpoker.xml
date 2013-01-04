@@ -519,7 +519,7 @@ function prepareAppDOM() {
  */
 function createUserStory(data) {
 	var userStory = $('<div />');
-	var headLine = $('<h2 />')
+	var headLine = $('<p />')
 		.text('Create new user story');
 	var statusText = '';
 
