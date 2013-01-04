@@ -36,7 +36,8 @@
 var Answers = {
 	YES: 'y',
 	NO: 'n',
-	MAYBE: 'm'
+	MAYBE: 'm',
+	Unknown: 'u'
 };
 var HOST = '//hangoutsapi.appspot.com/static/yesnomaybe';
 
