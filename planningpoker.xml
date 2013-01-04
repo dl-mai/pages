@@ -495,7 +495,7 @@ function prepareAppDOM() {
 		.text('(hans)');
 	var ansLink = $('<a />')
 		.attr('href', '#')
-		.text(DEFAULT_STATUS[ans])
+		.text('toggle Answers')
 		.append(numAnswered)
 		.click(function() {
 			return false;
