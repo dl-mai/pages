@@ -539,7 +539,7 @@ function createAnswersTable(data) {
 
 			var ansCell = $('<td />')
 				.attr('id', key)
-				.css('width', 100/Answers.length+'%')
+				.css('width', 20+'%')
 				.append(ansBtn, respondList);
 
 			// Add list of participants below each button.
