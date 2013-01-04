@@ -181,16 +181,11 @@ var submitDelta = null;
 			for (var key in keyOrState) {
 				if (keyOrState.hasOwnProperty(key)) {
 					state[key] = keyOrState[key];
-					console.log("dont get it");
-					console.dir("key");
-					console.dir("keyOrState[key]");
 				}
 			}
 		} else {
 			throw 'Unexpected argument.';
 		}
-		console.log('save');
-		console.dir(state);
 		return state;
 	};
 
@@ -535,7 +530,6 @@ function createAnswersTable(data) {
 	for (var key in Answers) {
 		if (Answers.hasOwnProperty(key)) {
 			var ans = Answers[key];
-			console.dir(key);
 			var numAnswered = $('<span />')
 				.text(' (' + data[ans].length + ')');
 			var ansLink = $('<a />')
