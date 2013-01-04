@@ -522,6 +522,14 @@ function createUserStory(data) {
 	var headLine = $('<h2 />')
 		.text('Create new user story');
 	userStory.append(headLine);
+	var triggerLink = $('<a href="#" class="link" />')
+		.text(statusText ? 'Edit' : 'Add Story');
+		.click(function() {
+			onSetStatus(this);
+			return false;
+		});
+
+	statusAnchor.append(triggerLink);
 	return userStory;
 }
 /**
