@@ -38,7 +38,8 @@ var Answers = {
 	NO: 'n',
 	MAYBE: 'm',
 	UNKNOWN: 'u',
-	COFFEE: 'c'
+	COFFEE: 'c',
+	ZERO: '0'
 };
 var HOST = '//hangoutsapi.appspot.com/static/yesnomaybe';
 
@@ -54,6 +55,7 @@ DEFAULT_STATUS[Answers.NO] = 'No';
 DEFAULT_STATUS[Answers.MAYBE] = 'Maybe';
 DEFAULT_STATUS[Answers.UNKNOWN] = 'No idea!';
 DEFAULT_STATUS[Answers.COFFEE] = 'Need Coffee!';
+DEFAULT_STATUS[Answers.ZERO] = '0';
 
 /**
  * The maximum length allowed for user status.
@@ -536,7 +538,7 @@ function createAnswersTable(data) {
 
 			var ansCell = $('<td />')
 				.attr('id', key)
-				.css('width', '20%')
+				.css('width', Answers.length+'%')
 				.append(ansBtn, respondList);
 
 			// Add list of participants below each button.
