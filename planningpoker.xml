@@ -653,6 +653,7 @@ function createParticipantElement(participant) {
 
 		statusAnchor.append(triggerLink);
 	}
+	var color = 'white';
 	console.log(getVoteStatus(participant.id));
 	if(getVoteStatus(participant.id) == 'FALSE') {
 		color = 'red';
