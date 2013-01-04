@@ -545,7 +545,7 @@ function createAnswersTable(data) {
 			for (var i = 0, iLen = data[ans].length; i < iLen; ++i) {
 				respondList.append(createParticipantElement(data[ans][i], ans));
 			}
-			console.log("answers: " + Answers.length);
+			console.log("answers: " + data.length);
 			var ansCell = $('<td />')
 				.attr('id', key)
 				.css('width', (100/6)+'%')
