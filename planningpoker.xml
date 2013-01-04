@@ -518,6 +518,14 @@ function prepareAppDOM() {
  *     table.
  * @return {Element} The DOM element displaying the app's main interface.
  */
+
+/**
+ * Creates the DOM element that shows the button for each response and displays
+ * each participant under his answer.
+ * @param {!Object.<!string, *>} data The information used to populate the
+ *     table.
+ * @return {Element} The DOM element displaying the app's main interface.
+ */
 function createAnswersTable(data) {
 	var buttonRow = $('<tr />');
 
