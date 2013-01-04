@@ -535,7 +535,7 @@ function createAnswersTable(data) {
 				.attr('class','respondList')
 				.hide();
 			for (var i = 0, iLen = data[ans].length; i < iLen; ++i) {
-				respondList.append(createParticipantElement(data[ans][i], ans));
+				respondList.append(createParticipantElement(data[ans][i));
 			}
 			var ansCell = $('<td />')
 				.attr('id', key)
@@ -549,7 +549,7 @@ function createAnswersTable(data) {
 	var participantRow = $('<tr />');
 	for( var participant in participants_){
 		console.dir(participants_);
-		participantRow.append(createParticipantElement(participant, {}));
+		participantRow.append(createParticipantElement(participant);
 	}
 	var controlRow = $('<tr />');
 	var hideButtonHandler = function() {
