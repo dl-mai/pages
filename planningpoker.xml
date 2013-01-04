@@ -653,8 +653,12 @@ function createParticipantElement(participant) {
 
 		statusAnchor.append(triggerLink);
 	}
-
-	return $('<li />').append(avatar, name, statusAnchor);
+	var color = 'white';
+	if(getVoteStatus(participant.id) != TRUE) {
+		color = 'red';
+	}
+	return $('<li />').append(avatar, name, statusAnchor)
+		.css('background-color',color);
 }
 
 (function() {
