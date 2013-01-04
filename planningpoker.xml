@@ -548,7 +548,7 @@ function createAnswersTable(data) {
 	}
 	var participantRow = $('<tr />');
 	for (var i = 0, iLen = participants_.length; i < iLen; ++i) {
-		participantRow.append(createParticipantElement(participants_[i]));
+		participantList.append(createParticipantElement(participants_[i]));
 	}
 	var controlRow = $('<tr />');
 	var hideButtonHandler = function() {
