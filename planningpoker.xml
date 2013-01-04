@@ -532,6 +532,7 @@ function createAnswersTable(data) {
 				.mouseup(getButtonMouseUpHandler(ans));
 
 			var respondList = $('<ul />')
+				.attr('class','respondList')
 				.hide();
 			for (var i = 0, iLen = data[ans].length; i < iLen; ++i) {
 				respondList.append(createParticipantElement(data[ans][i], ans));
@@ -548,7 +549,7 @@ function createAnswersTable(data) {
 	var controlRow = $('<tr />');
 	var hideButtonHandler = function() {
 		return function() {
-			respondList.show();
+			$('.respondList').show();
 			console.log("pressed");
 		};
 	};
