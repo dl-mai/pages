@@ -489,7 +489,7 @@ function prepareAppDOM() {
 			onSubmitStatus();
 		}
 		e.stopPropagation();
-	}).append(container_, showBtn,statusDiv);
+	}).append(container_,statusDiv);
 }
 
 /**
