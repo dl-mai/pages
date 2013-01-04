@@ -608,13 +608,13 @@ function createAnswersTable(data) {
  * @return {Element} A DOM element which shows a participant and allows him to
  *     modify his status.
  */
-function createParticipantElement(participant, response) {
+function createParticipantElement(participant) {
 	var avatar = $('<img />').attr({
 		'width': '27',
 		'alt': 'Avatar',
 		'class': 'avatar',
 		'src': participant.person.image && participant.person.image.url ?
-			participant.person.image.url : DEFAULT_ICONS[response]
+			participant.person.image.url : ''
 	});
 
 	var name = $('<h2 />').text(participant.person.displayName);
