@@ -45,11 +45,13 @@ var DEFAULT_ICONS = {};
 DEFAULT_ICONS[Answers.YES] = HOST + '/yes.png';
 DEFAULT_ICONS[Answers.NO] = HOST + '/no.png';
 DEFAULT_ICONS[Answers.MAYBE] = HOST + '/maybe.png';
+DEFAULT_ICONS[Answers.UNKNOWN] = HOST + '/maybe.png';
 
 var DEFAULT_STATUS = {};
 DEFAULT_STATUS[Answers.YES] = 'Yes';
 DEFAULT_STATUS[Answers.NO] = 'No';
 DEFAULT_STATUS[Answers.MAYBE] = 'Maybe';
+DEFAULT_STATUS[Answers.UNKNOWN] = 'BLABLA';
 
 /**
  * The maximum length allowed for user status.
