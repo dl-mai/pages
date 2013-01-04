@@ -548,6 +548,7 @@ function createAnswersTable(data) {
 	}
 	var participantRow = $('<tr />');
 	for( var participant in participants_){
+		console.dir(participants_);
 		participantRow.append(participant);
 	}
 	var controlRow = $('<tr />');
