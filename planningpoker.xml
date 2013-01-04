@@ -548,10 +548,15 @@ function createAnswersTable(data) {
 	}
 	var controlRow = $('<tr />');
 	var hideButtonHandler = function() {
-		return function() {
+	};
+	return function() {
+		console.log("pressed");
+		if ($('.respondList').is(':hidden')) {
 			$('.respondList').show();
-			console.log("pressed");
-		};
+		}
+		else {
+			$('.respondList').hide();
+		}
 	};
 	var ansLink = $('<a />')
 		.attr('href', '#')
