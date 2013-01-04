@@ -660,6 +660,7 @@ function createParticipantElement(participant, response) {
 		gapi.hangout.onApiReady.add(initHangout);
 	}
 })();
+s
   </script>
   <link type="text/css" rel="stylesheet" href="//hangoutsapi.appspot.com/static/yesnomaybe/yesnomaybe.css" />
 
