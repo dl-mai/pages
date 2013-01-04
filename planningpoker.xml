@@ -545,6 +545,26 @@ function createAnswersTable(data) {
 			buttonRow.append(ansCell);
 		}
 	}
+	var controlRow = $('<tr />');
+	var hideButtonHandler = function(ans) {
+		return function() {
+			$(this).;
+		};
+	};
+	var numAnswered = $('<span />')
+		.text('(hans)');
+	var ansLink = $('<a />')
+		.attr('href', '#')
+		.text('toggle Answers')
+		.append(numAnswered)
+		.click(function() {
+			return false;
+		});
+	var showBtn = $('<div />')
+		.addClass('button')
+		.append(ansLink)
+		.mouseup(hideButtonHandler(ans));
+	controlRow.append(showBtn);
 
 	var table = $('<table />')
 		.attr({
@@ -552,7 +572,7 @@ function createAnswersTable(data) {
 			'cellpadding': '0',
 			'summary': '',
 			'width': '100%'
-		}).append(buttonRow);
+		}).append(buttonRow, controlRow);
 
 	if (!data.responded) {
 		var instructImg = $('<img />')
