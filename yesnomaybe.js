@@ -24,7 +24,9 @@
 var Answers = {
 	YES: 'y',
 	NO: 'n',
-	MAYBE: 'm'
+	MAYBE: 'm',
+	UNKNOWN: 'u',
+	COFFEE: 'c'
 };
 var HOST = '//hangoutsapi.appspot.com/static/yesnomaybe';
 
@@ -162,7 +164,6 @@ var submitDelta = null;
 		} else {
 			throw 'Unexpected argument.';
 		}
-		console.log("hans"+state);
 		return state;
 	};
 
@@ -287,6 +288,7 @@ function onSubmitStatus() {
 	if (statusVisible_) {
 		statusVisible_ = false;
 		var statusVal = statusInput_.val();
+		consolse.log(statusInput_.val());
 		statusVal = statusVal.length < MAX_STATUS_LENGTH ? statusVal :
 			statusVal.substr(0, MAX_STATUS_LENGTH);
 		setStatusMessage(statusVal);
@@ -329,7 +331,7 @@ function getUserHangoutId() {
  * Renders the app.
  */
 function render() {
-	if (!state_ || !metadata_ || !participants_ || !container_) {
+	if (!(state_ && metadata_ && participants_ && container_)) {
 		return;
 	}
 
@@ -352,6 +354,8 @@ function render() {
 		var p = participants_[i];
 		// Temporary id, corresponds to getUserHangoutId().
 		var answerKey = makeUserKey(p.id, 'answer');
+		console.log("answerKey");
+		console.log(answerKey);
 		var answer = getState(answerKey);
 		var meta = getMetadata(answerKey);
 
