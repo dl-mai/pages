@@ -654,7 +654,7 @@ function createParticipantElement(participant) {
 		statusAnchor.append(triggerLink);
 	}
 	var color = 'white';
-	if(getVoteStatus(participant.id) != TRUE) {
+	if(getVoteStatus(participant.id) != 'TRUE') {
 		color = 'red';
 	}
 	return $('<li />').append(avatar, name, statusAnchor)
