@@ -482,6 +482,11 @@ function prepareAppDOM() {
 		}).hide();
 
 	container_ = $('<div />');
+	var getButtonMouseUpHandler = function(ans) {
+		return function() {
+			$(this).;
+		};
+	};
 	var numAnswered = $('<span />')
 		.text('(hans)');
 	var ansLink = $('<a />')
@@ -493,7 +498,8 @@ function prepareAppDOM() {
 		});
 	var showBtn = $('<div />')
 		.addClass('button')
-		.append(ansLink);
+		.append(ansLink)
+		.mouseup(getButtonMouseUpHandler(ans));
 
 	var body = $('body');
 	body.mousedown(function(e) {
