@@ -1,18 +1,3 @@
-/*
- * Copyright (c) 2011 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may
- * not use this file except in compliance with the License. You may obtain
- * a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
 
 /**
  * @fileoverview Logic for the Yes/No/Maybe app.
@@ -22,9 +7,13 @@
 
 /** @enum {string} */
 var Answers = {
-	YES: 'y',
-	NO: 'n',
-	MAYBE: 'm',
+	ZERO: '0',
+	HALF: '1/2',
+	ONE: '1',
+	TWO: '2',
+	THREE: '3',
+	FIVE: '5',
+	EIGHT: '8',
 	UNKNOWN: 'u',
 	COFFEE: 'c'
 };
@@ -34,18 +23,25 @@ var DEFAULT_ICONS = {};
 DEFAULT_ICONS[Answers.YES] = HOST + '/yes.png';
 DEFAULT_ICONS[Answers.NO] = HOST + '/no.png';
 DEFAULT_ICONS[Answers.MAYBE] = HOST + '/maybe.png';
+DEFAULT_ICONS[Answers.UNKNOWN] = HOST + '/maybe.png';
 
 var DEFAULT_STATUS = {};
-DEFAULT_STATUS[Answers.YES] = 'Yes';
-DEFAULT_STATUS[Answers.NO] = 'No';
-DEFAULT_STATUS[Answers.MAYBE] = 'Maybe';
+DEFAULT_STATUS[Answers.ZERO] = '0';
+DEFAULT_STATUS[Answers.HALF] = '1/2';
+DEFAULT_STATUS[Answers.ONE] = '1';
+DEFAULT_STATUS[Answers.TWO] = '2';
+DEFAULT_STATUS[Answers.THREE] = '3';
+DEFAULT_STATUS[Answers.FIVE] = '5';
+DEFAULT_STATUS[Answers.EIGHT] = '8';
+DEFAULT_STATUS[Answers.UNKNOWN] = 'No idea!';
+DEFAULT_STATUS[Answers.COFFEE] = 'Need Coffee!';
 
 /**
  * The maximum length allowed for user status.
  * @const
  * @type {number}
  */
-var MAX_STATUS_LENGTH = 255;
+var MAX_STATUS_LENGTH = 20;
 
 /**
  * Whether the user is currently editing his status.
@@ -111,7 +107,6 @@ function defer(func) {
  * @return {!string} A new key for use in the shared state.
  */
 function makeUserKey(id, key) {
-	console.log(id+ ':'+ key);
 	return id + ':' + key;
 }
 
@@ -152,7 +147,7 @@ var submitDelta = null;
 		var state = null;
 		if (typeof keyOrState === 'string') {
 			state = {};
-			state[keyOrState] = opt_value;
+			state[keyOrState]= opt_value;
 		} else if (typeof keyOrState === 'object' && null !== keyOrState) {
 			// Ensure that no prototype-level properties are hitching a ride.
 			state = {};
@@ -245,8 +240,10 @@ function onAnswer(newAnswer) {
 
 	if (current === newAnswer) {
 		removeValue(answerKey);
+		setVoteStatus("FALSE");
 	} else {
 		saveValue(answerKey, newAnswer);
+		setVoteStatus("TRUE");
 	}
 }
 
@@ -265,6 +262,23 @@ function getStatusMessage(participantId) {
 function setStatusMessage(message) {
 	saveValue(makeUserKey(getUserHangoutId(), 'status'), message);
 }
+
+/**
+ * @param {!string} participantId The temporary id of a Participant.
+ * @return {string} The voteStatus of the given Participant.
+ */
+function getVoteStatus(participantId) {
+	return getState(makeUserKey(participantId, 'voteStatus'));
+}
+
+/**
+ * Sets the status for the current user.
+ * @param {!string} message The user's new status.
+ */
+function setVoteStatus(message) {
+	saveValue(makeUserKey(getUserHangoutId(), 'voteStatus'), message);
+}
+
 
 /**
  * Displays the input allowing a user to set his status.
@@ -288,7 +302,6 @@ function onSubmitStatus() {
 	if (statusVisible_) {
 		statusVisible_ = false;
 		var statusVal = statusInput_.val();
-		consolse.log(statusInput_.val());
 		statusVal = statusVal.length < MAX_STATUS_LENGTH ? statusVal :
 			statusVal.substr(0, MAX_STATUS_LENGTH);
 		setStatusMessage(statusVal);
@@ -331,7 +344,7 @@ function getUserHangoutId() {
  * Renders the app.
  */
 function render() {
-	if (!(state_ && metadata_ && participants_ && container_)) {
+	if (!state_ || !metadata_ || !participants_ || !container_) {
 		return;
 	}
 
@@ -345,20 +358,23 @@ function render() {
 		total: 0,
 		responded: false
 	};
-	data[Answers.YES] = [];
-	data[Answers.NO] = [];
-	data[Answers.MAYBE] = [];
+	data[Answers.ZERO] = [];
+	data[Answers.HALF] = [];
+	data[Answers.ONE] = [];
+	data[Answers.TWO] = [];
+	data[Answers.THREE] = [];
+	data[Answers.FIVE] = [];
+	data[Answers.EIGHT] = [];
+	data[Answers.UNKNOWN] = [];
+	data[Answers.COFFEE] = [];
 
 	var myId = getUserHangoutId();
 	for (var i = 0, iLen = participants_.length; i < iLen; ++i) {
 		var p = participants_[i];
 		// Temporary id, corresponds to getUserHangoutId().
 		var answerKey = makeUserKey(p.id, 'answer');
-		console.log("answerKey");
-		console.log(answerKey);
 		var answer = getState(answerKey);
 		var meta = getMetadata(answerKey);
-
 		if (answer && data[answer]) {
 			data[answer].push(p);
 			if (p.id === myId) {
@@ -391,7 +407,7 @@ function render() {
 
 	container_
 		.empty()
-		.append(createAnswersTable(data));
+		.append(createUserStory(data),createAnswersTable(data));
 }
 
 /**
@@ -465,9 +481,30 @@ function prepareAppDOM() {
 			onSubmitStatus();
 		}
 		e.stopPropagation();
-	}).append(container_, statusDiv);
+	}).append(container_,statusDiv);
 }
 
+/**
+ * Creates the DOM element that shows the current user story
+ * @param {!Object.<!string, *>} data The information used to populate the
+ *     user story.
+ * @return {Element} The DOM element displaying the app's main interface.
+ */
+function createUserStory(data) {
+	var userStory = $('<div />');
+	var headLine = $('<h2 />')
+		.text('Create new user story');
+	userStory.append(headLine);
+	var triggerLink = $('<a href="#" class="link" />')
+		.text(statusText ? 'Edit' : 'Add Story')
+		.click(function() {
+			onSetStatus(this);
+			return false;
+		});
+
+	statusAnchor.append(triggerLink);
+	return userStory;
+}
 /**
  * Creates the DOM element that shows the button for each response and displays
  * each participant under his answer.
@@ -492,7 +529,6 @@ function createAnswersTable(data) {
 	for (var key in Answers) {
 		if (Answers.hasOwnProperty(key)) {
 			var ans = Answers[key];
-
 			var numAnswered = $('<span />')
 				.text(' (' + data[ans].length + ')');
 			var ansLink = $('<a />')
@@ -508,19 +544,45 @@ function createAnswersTable(data) {
 				.mousedown(onButtonMouseDown)
 				.mouseup(getButtonMouseUpHandler(ans));
 
-			var respondList = $('<ul />');
+			var respondList = $('<ul />')
+				.attr('class','respondList')
+				.hide();
 			for (var i = 0, iLen = data[ans].length; i < iLen; ++i) {
-				respondList.append(createParticipantElement(data[ans][i], ans));
+				respondList.append(createParticipantElement(data[ans][i]));
 			}
-
 			var ansCell = $('<td />')
 				.attr('id', key)
+				.css('width', (100/Object.keys(Answers).length)+'%')
 				.append(ansBtn, respondList);
 
 			// Add list of participants below each button.
 			buttonRow.append(ansCell);
 		}
 	}
+	var participantRow = $('<tr />');
+	var participantList = $('<ul />');
+	for (var i = 0, iLen = participants_.length; i < iLen; ++i) {
+		participantList.append(createParticipantElement(participants_[i]));
+	}
+	participantRow.append(participantList);
+	var controlRow = $('<tr />');
+	var hideButtonHandler = function() {
+		return function() {
+			$('.respondList').show();
+			console.log("pressed");
+		};
+	};
+	var ansLink = $('<a />')
+		.attr('href', '#')
+		.text('toggle')
+		.click(function() {
+			return false;
+		});
+	var showBtn = $('<div />')
+		.addClass('button')
+		.append(ansLink)
+		.mouseup(hideButtonHandler());
+	controlRow.append(showBtn);
 
 	var table = $('<table />')
 		.attr({
@@ -528,7 +590,7 @@ function createAnswersTable(data) {
 			'cellpadding': '0',
 			'summary': '',
 			'width': '100%'
-		}).append(buttonRow);
+		}).append(buttonRow, controlRow, participantRow);
 
 	if (!data.responded) {
 		var instructImg = $('<img />')
@@ -560,13 +622,13 @@ function createAnswersTable(data) {
  * @return {Element} A DOM element which shows a participant and allows him to
  *     modify his status.
  */
-function createParticipantElement(participant, response) {
+function createParticipantElement(participant) {
 	var avatar = $('<img />').attr({
 		'width': '27',
 		'alt': 'Avatar',
 		'class': 'avatar',
 		'src': participant.person.image && participant.person.image.url ?
-			participant.person.image.url : DEFAULT_ICONS[response]
+			participant.person.image.url : ''
 	});
 
 	var name = $('<h2 />').text(participant.person.displayName);
@@ -585,8 +647,19 @@ function createParticipantElement(participant, response) {
 
 		statusAnchor.append(triggerLink);
 	}
+	var color = 'white';
+	console.log(getVoteStatus(participant.id));
+	if(getVoteStatus(participant.id) == 'FALSE') {
+		color = 'red';
+	} else if (getVoteStatus(participant.id) == 'TRUE') {
+		color = 'green';
+	}
+	else {
+		color = 'white';
+	}
 
-	return $('<li />').append(avatar, name, statusAnchor);
+		return $('<li />').append(avatar, name, statusAnchor)
+		.css('background-color',color);
 }
 
 (function() {
@@ -599,6 +672,7 @@ function createParticipantElement(participant, response) {
 				gapi.hangout.data.onStateChanged.add(function(stateChangeEvent) {
 					updateLocalDataState(stateChangeEvent.state,
 						stateChangeEvent.metadata);
+					console.dir(state_);
 				});
 				gapi.hangout.onParticipantsChanged.add(function(partChangeEvent) {
 					updateLocalParticipantsData(partChangeEvent.participants);
