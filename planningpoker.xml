@@ -546,9 +546,9 @@ function createAnswersTable(data) {
 		}
 	}
 	var controlRow = $('<tr />');
-	var hideButtonHandler = function(ans) {
+	var hideButtonHandler = function() {
 		return function() {
-			$(this).;
+			respondList.show();
 		};
 	};
 	var numAnswered = $('<span />')
@@ -563,7 +563,7 @@ function createAnswersTable(data) {
 	var showBtn = $('<div />')
 		.addClass('button')
 		.append(ansLink)
-		.mouseup(hideButtonHandler(ans));
+		.mouseup(hideButtonHandler());
 	controlRow.append(showBtn);
 
 	var table = $('<table />')
