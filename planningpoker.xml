@@ -289,6 +289,23 @@ function setStatusMessage(message) {
 }
 
 /**
+ * @param {!string} participantId The temporary id of a Participant.
+ * @return {string} The voteStatus of the given Participant.
+ */
+function getVoteStatus(participantId) {
+	return getState(makeUserKey(participantId, 'voteStatus'));
+}
+
+/**
+ * Sets the status for the current user.
+ * @param {!string} message The user's new status.
+ */
+function setVoteStatus(message) {
+	saveValue(makeUserKey(getUserHangoutId(), 'voteStatus'), message);
+}
+
+
+/**
  * Displays the input allowing a user to set his status.
  * @param {!Element} linkElement The link that triggered this handler.
  */
