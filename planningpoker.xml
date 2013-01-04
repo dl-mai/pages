@@ -521,7 +521,7 @@ function createUserStory(data) {
 	var userStory = $('<div />');
 	var headLine = $('<h2 />')
 		.text('Create new user story');
-	var statusText = getStatusMessage(participant.id) || '';
+	var statusText = '';
 
 	userStory.append(headLine);
 	var triggerLink = $('<a href="#" class="link" />')
