@@ -559,7 +559,7 @@ function createAnswersTable(data) {
 	};
 	var ansLink = $('<a />')
 		.attr('href', '#')
-		.text('toggle Answers')
+		.text('toggle')
 		.click(function() {
 			return false;
 		});
