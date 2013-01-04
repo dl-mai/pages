@@ -547,6 +547,7 @@ function createAnswersTable(data) {
 		}
 	}
 	var participantRow = $('<tr />');
+	var participantList = $('<ul />');
 	for (var i = 0, iLen = participants_.length; i < iLen; ++i) {
 		participantList.append(createParticipantElement(participants_[i]));
 	}
