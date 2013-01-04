@@ -528,7 +528,7 @@ function createUserStory(data) {
 			return false;
 		});
 
-	statusAnchor.append(triggerLink);
+	headLine.append(triggerLink);
 	return userStory;
 }
 /**
