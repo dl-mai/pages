@@ -41,7 +41,6 @@ var Answers = {
 	THREE: '3',
 	FIVE: '5',
 	EIGHT: '8',
-	MAYBE: 'm',
 	UNKNOWN: 'u',
 	COFFEE: 'c'
 };
@@ -61,7 +60,6 @@ DEFAULT_STATUS[Answers.TWO] = '2';
 DEFAULT_STATUS[Answers.THREE] = '3';
 DEFAULT_STATUS[Answers.FIVE] = '5';
 DEFAULT_STATUS[Answers.EIGHT] = '8';
-DEFAULT_STATUS[Answers.MAYBE] = 'Maybe';
 DEFAULT_STATUS[Answers.UNKNOWN] = 'No idea!';
 DEFAULT_STATUS[Answers.COFFEE] = 'Need Coffee!';
 
