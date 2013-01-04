@@ -547,7 +547,9 @@ function createAnswersTable(data) {
 		}
 	}
 	var participantRow = $('<tr />');
-	participantRow.append(createAnswersTable());
+	for( var participant in participants_){
+		participantRow.append(participant);
+	}
 	var controlRow = $('<tr />');
 	var hideButtonHandler = function() {
 		return function() {
@@ -573,7 +575,7 @@ function createAnswersTable(data) {
 			'cellpadding': '0',
 			'summary': '',
 			'width': '100%'
-		}).append(buttonRow, controlRow);
+		}).append(buttonRow, controlRow, participantRow);
 
 	if (!data.responded) {
 		var instructImg = $('<img />')
