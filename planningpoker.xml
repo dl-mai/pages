@@ -390,8 +390,6 @@ function render() {
 		var answerKey = makeUserKey(p.id, 'answer');
 		var answer = getState(answerKey);
 		var meta = getMetadata(answerKey);
-		console.log("answerKey");
-		console.log(answerKey);
 		if (answer && data[answer]) {
 			data[answer].push(p);
 			if (p.id === myId) {
