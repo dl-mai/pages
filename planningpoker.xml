@@ -548,6 +548,7 @@ function createAnswersTable(data) {
 			console.log("answers: " + data.length);
 			console.dir(data);
 			console.dir(Answers);
+			console.dir(Object.keys(Answers).length);
 			var ansCell = $('<td />')
 				.attr('id', key)
 				.css('width', (100/9)+'%')
