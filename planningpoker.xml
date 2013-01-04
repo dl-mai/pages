@@ -655,10 +655,13 @@ function createParticipantElement(participant) {
 	}
 	var color = 'white';
 	console.log(getVoteStatus(participant.id));
-	if(getVoteStatus(participant.id) != 'TRUE') {
+	if(getVoteStatus(participant.id) == 'FALSE') {
 		color = 'red';
+	} else if (getVoteStatus(participant.id) == 'TRUE') {
+		color = 'green';
 	}
-	return $('<li />').append(avatar, name, statusAnchor)
+
+		return $('<li />').append(avatar, name, statusAnchor)
 		.css('background-color',color);
 }
 
