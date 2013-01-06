@@ -307,10 +307,10 @@ function setVoteStatus(message) {
 }
 
 /**
- * @param {!string} storyID.
+ * @param {!string} participantId.
  * @return {string} The user story.
  */
-function getUserStory(storyID) {
+function getUserStory(participantId) {
 	return getState(makeUserKey(participantId, 'userStory'));
 }
 
