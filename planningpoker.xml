@@ -522,6 +522,12 @@ function createUserStory(data) {
 	var headLine = $('<p />')
 		.text('Create new user story');
 	var statusText = '';
+	var hideButtonHandler = function() {
+		return function() {
+			$('.respondList').show();
+			console.log("pressed");
+		};
+	};
 	var ansLink = $('<a />')
 		.attr('href', '#')
 		.text('toggle')
@@ -533,7 +539,7 @@ function createUserStory(data) {
 		.append(ansLink)
 		.mouseup(hideButtonHandler());
 	controlRow.append(showBtn);
-	
+
 	userStory.append(headLine);
 	var triggerLink = $('<a href="#" class="link" />')
 		.text(statusText ? 'Edit' : 'Add Story')
