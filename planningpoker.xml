@@ -538,7 +538,7 @@ function prepareAppDOM() {
 			defer(onSubmitStatus);
 		}
 		else {
-			defer(onSubmitUserStory());
+			defer(onSubmitUserStory);
 		}		return false;
 	});
 
@@ -550,7 +550,7 @@ function prepareAppDOM() {
 				defer(onSubmitStatus);
 			}
 			else {
-				defer(onSubmitUserStory());
+				defer(onSubmitUserStory);
 			}
 		}
 		e.stopPropagation();
@@ -561,7 +561,7 @@ function prepareAppDOM() {
 				defer(onSubmitStatus);
 			}
 			else {
-				defer(onSubmitUserStory());
+				defer(onSubmitUserStory);
 			}
 			e.stopPropagation();
 		}).mousedown(function(e) {
@@ -579,7 +579,7 @@ function prepareAppDOM() {
 				defer(onSubmitStatus);
 			}
 			else {
-				defer(onSubmitUserStory());
+				defer(onSubmitUserStory);
 			}
 		}
 		e.stopPropagation();
