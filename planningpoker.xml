@@ -541,7 +541,7 @@ function prepareAppDOM() {
 				defer(onSubmitStatus);
 			}
 			else {
-				defer(onSubmitUserStory())
+				defer(onSubmitUserStory());
 			}
 		}
 		e.stopPropagation();
