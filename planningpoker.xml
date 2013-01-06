@@ -303,10 +303,24 @@ function getVoteStatus(participantId) {
  * @param {!string} message The user's new status.
  */
 function setVoteStatus(message) {
-	saveValue(makeUserKey(getUserHangoutId(), 'voteStatus'), message);
+	saveValue(makeUserKey(getUserHangoutId(), 'userStory'), message);
 }
 
+/**
+ * @param {!string} storyID.
+ * @return {string} The user story.
+ */
+function getUserStory(storyID) {
+	return getState(makeUserKey(participantId, 'userStory'));
+}
 
+/**
+ * Sets the status for the current user.
+ * @param {!string} message The user's new status.
+ */
+function setUserStory(message) {
+	saveValue(makeUserKey(getUserHangoutId(), 'voteStatus'), message);
+}
 /**
  * Displays the input allowing a user to set his status.
  * @param {!Element} linkElement The link that triggered this handler.
