@@ -532,7 +532,7 @@ function prepareAppDOM() {
 	statusForm_.submit(function() {
 		console.log("dieger");
 		console.log(statusInput_.attr('status'));
-		if(statusInput_.attr('status') == 'status'){
+		if(statusInput_.attr('class') == 'status'){
 			defer(onSubmitStatus);
 		}
 		else {
@@ -544,7 +544,7 @@ function prepareAppDOM() {
 		if (e.which === 13) {
 			console.log("hans");
 			console.log(statusInput_.attr('status'));
-			if(statusInput_.attr('status') == 'status'){
+			if(statusInput_.attr('class') == 'status'){
 				defer(onSubmitStatus);
 			}
 			else {
@@ -555,7 +555,7 @@ function prepareAppDOM() {
 	}).blur(function(e) {
 			console.log("if blur");
 			console.log(statusInput_.attr('status'));
-			if(statusInput_.attr('status') == 'status'){
+			if(statusInput_.attr('class') == 'status'){
 				defer(onSubmitStatus);
 			}
 			else {
