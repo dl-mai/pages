@@ -595,7 +595,7 @@ function createUserStory(data) {
 	var triggerLink = $('<a href="#" class="link" />')
 		.text(statusText ? 'Edit' : 'Add Story')
 		.click(function() {
-			onSetUserStory();
+			onSetUserStory(this);
 			return false;
 		});
 
