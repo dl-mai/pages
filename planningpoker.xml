@@ -374,6 +374,7 @@ function onSetUserStory(linkElement) {
  * Sets the user's status message and hides the input element.
  */
 function onSubmitUserStory() {
+	console.log("try submit userstory")M
 	if (statusVisible_) {
 		statusVisible_ = false;
 		var statusVal = statusInput_.val();
