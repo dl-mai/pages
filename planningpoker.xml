@@ -538,7 +538,6 @@ function createUserStory(data) {
 		.addClass('button')
 		.append(ansLink)
 		.mouseup(hideButtonHandler());
-	controlRow.append(showBtn);
 
 	userStory.append(headLine);
 	var triggerLink = $('<a href="#" class="link" />')
