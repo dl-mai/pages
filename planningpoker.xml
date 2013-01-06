@@ -377,7 +377,7 @@ function onSubmitUserStory() {
 		var statusVal = statusInput_.val();
 		statusVal = statusVal.length < MAX_STATUS_LENGTH ? statusVal :
 			statusVal.substr(0, MAX_STATUS_LENGTH);
-		setStatusMessage(statusVal);
+		onSetUserStory(statusVal);
 		statusForm_.append(statusInput_);
 		statusInput_.hide();
 		render();
