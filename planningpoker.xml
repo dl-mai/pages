@@ -311,6 +311,7 @@ function setVoteStatus(message) {
  * @return {string} The user story.
  */
 function getUserStory(participantId) {
+	console.dir(makeUserKey(participantId, 'userStory'));
 	return getState(makeUserKey(participantId, 'userStory'));
 }
 
@@ -736,7 +737,6 @@ function createParticipantElement(participant) {
 		statusAnchor.append(triggerLink);
 	}
 	var color = 'white';
-	console.log(getVoteStatus(participant.id));
 	if(getVoteStatus(participant.id) == 'FALSE') {
 		color = 'red';
 	} else if (getVoteStatus(participant.id) == 'TRUE') {
