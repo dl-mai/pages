@@ -327,10 +327,9 @@ function setUserStory(message) {
  * @param {!Element} linkElement The link that triggered this handler.
  */
 function onSetStatus(linkElement) {
-	console.log("onsetStatus");
 	statusVisible_ = true;
 	statusInput_.fadeIn(500);
-	statusInput_.attr('class','status');
+	statusInput_.att('class','status');
 	$(linkElement).parent('p').hide();
 	$(linkElement).parent('p').parent().append(statusInput_);
 	statusInput_.val(getStatusMessage(getUserHangoutId()));
@@ -350,7 +349,6 @@ function onSubmitStatus() {
 			statusVal.substr(0, MAX_STATUS_LENGTH);
 		setStatusMessage(statusVal);
 		statusForm_.append(statusInput_);
-		statusInput_.attr('class','');
 		statusInput_.hide();
 		render();
 	}
@@ -363,7 +361,6 @@ function onSubmitStatus() {
 function onSetUserStory(linkElement) {
 	statusVisible_ = true;
 	statusInput_.fadeIn(500);
-	statusInput_.attr('class','userStory');
 	$(linkElement).parent('p').hide();
 	$(linkElement).parent('p').parent().append(statusInput_);
 	statusInput_.val(getUserStory(getUserHangoutId()));
@@ -376,7 +373,6 @@ function onSetUserStory(linkElement) {
  * Sets the user's status message and hides the input element.
  */
 function onSubmitUserStory() {
-	console.log("try submit userstory");
 	if (statusVisible_) {
 		statusVisible_ = false;
 		var statusVal = statusInput_.val();
@@ -384,7 +380,6 @@ function onSubmitUserStory() {
 			statusVal.substr(0, MAX_STATUS_LENGTH);
 		onSetUserStory(statusVal);
 		statusForm_.append(statusInput_);
-		statusInput_.attr('class','');
 		statusInput_.hide();
 		render();
 	}
@@ -535,37 +530,19 @@ function prepareAppDOM() {
 		.append(statusForm_);
 
 	statusForm_.submit(function() {
-		console.log("dieger");
-		console.log(statusInput_.attr('class'));
-		if(statusInput_.attr('class') == 'status'){
-			defer(onSubmitStatus);
-		}
-		else {
-			defer(onSubmitUserStory);
-		}		return false;
+		onSubmitStatus();
+		return false;
 	});
 
 	statusInput_.keypress(function(e) {
 		if (e.which === 13) {
-			console.log("hans");
-			console.log(statusInput_.attr('class'));
-			if(statusInput_.attr('class') == 'status'){
+			if(statusInput_.attr('status') == 'status'){
 				defer(onSubmitStatus);
-			}
-			else {
-				defer(onSubmitUserStory);
 			}
 		}
 		e.stopPropagation();
 	}).blur(function(e) {
-			console.log("if blur");
-			console.log(statusInput_.attr('class'));
-			if(statusInput_.attr('class') == 'status'){
-				defer(onSubmitStatus);
-			}
-			else {
-				defer(onSubmitUserStory);
-			}
+			onSubmitStatus();
 			e.stopPropagation();
 		}).mousedown(function(e) {
 			e.stopPropagation();
@@ -576,14 +553,7 @@ function prepareAppDOM() {
 	var body = $('body');
 	body.mousedown(function(e) {
 		if (statusVisible_) {
-			console.log("if statusVisible_");
-			console.log(statusInput_.attr('class'));
-			if(statusInput_.attr('class') == 'status'){
-				defer(onSubmitStatus);
-			}
-			else {
-				defer(onSubmitUserStory);
-			}
+			onSubmitStatus();
 		}
 		e.stopPropagation();
 	}).append(container_,statusDiv);
@@ -621,7 +591,6 @@ function createUserStory(data) {
 	var triggerLink = $('<a href="#" class="link" />')
 		.text(statusText ? 'Edit' : 'Add Story')
 		.click(function() {
-			onSetUserStory(this);
 			return false;
 		});
 
