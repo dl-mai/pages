@@ -539,7 +539,7 @@ function createUserStory(data) {
 		.append(ansLink)
 		.mouseup(hideButtonHandler());
 
-	userStory.append(headLine);
+	userStory.append(headLine, showBtn);
 	var triggerLink = $('<a href="#" class="link" />')
 		.text(statusText ? 'Edit' : 'Add Story')
 		.click(function() {
