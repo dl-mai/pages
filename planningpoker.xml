@@ -522,7 +522,7 @@ function createUserStory(data) {
 	var headLine = $('<p />')
 		.text('Create new user story');
 	var statusText = '';
-
+s
 	userStory.append(headLine);
 	var triggerLink = $('<a href="#" class="link" />')
 		.text(statusText ? 'Edit' : 'Add Story')
