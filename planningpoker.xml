@@ -540,6 +540,9 @@ function prepareAppDOM() {
 			if(statusInput_.attr('status') == 'status'){
 				defer(onSubmitStatus);
 			}
+			else {
+				defer(onSubmitUserStory())
+			}
 		}
 		e.stopPropagation();
 	}).blur(function(e) {
