@@ -68,7 +68,7 @@ DEFAULT_STATUS[Answers.COFFEE] = 'Need Coffee!';
  * @const
  * @type {number}
  */
-var MAX_STATUS_LENGTH = 20;
+var MAX_STATUS_LENGTH = 255;
 
 /**
  * Whether the user is currently editing his status.
