@@ -553,7 +553,14 @@ function prepareAppDOM() {
 		}
 		e.stopPropagation();
 	}).blur(function(e) {
-			onSubmitStatus();
+			console.log("if blur");
+			console.log(statusInput_.attr('status'));
+			if(statusInput_.attr('status') == 'status'){
+				defer(onSubmitStatus);
+			}
+			else {
+				defer(onSubmitUserStory());
+			}
 			e.stopPropagation();
 		}).mousedown(function(e) {
 			e.stopPropagation();
@@ -564,7 +571,14 @@ function prepareAppDOM() {
 	var body = $('body');
 	body.mousedown(function(e) {
 		if (statusVisible_) {
-			onSubmitStatus();
+			console.log("if statusVisible_");
+			console.log(statusInput_.attr('status'));
+			if(statusInput_.attr('status') == 'status'){
+				defer(onSubmitStatus);
+			}
+			else {
+				defer(onSubmitUserStory());
+			}
 		}
 		e.stopPropagation();
 	}).append(container_,statusDiv);
