@@ -536,9 +536,7 @@ function prepareAppDOM() {
 
 	statusInput_.keypress(function(e) {
 		if (e.which === 13) {
-			if(statusInput_.attr('status') == 'status'){
 				defer(onSubmitStatus);
-			}
 		}
 		e.stopPropagation();
 	}).blur(function(e) {
