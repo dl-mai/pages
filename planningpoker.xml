@@ -350,6 +350,7 @@ function onSubmitStatus() {
 			statusVal.substr(0, MAX_STATUS_LENGTH);
 		setStatusMessage(statusVal);
 		statusForm_.append(statusInput_);
+		statusInput_.attr('class','');
 		statusInput_.hide();
 		render();
 	}
