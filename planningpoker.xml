@@ -362,7 +362,7 @@ function onSubmitStatus() {
 function onSetUserStory(linkElement) {
 	statusVisible_ = true;
 	statusInput_.fadeIn(500);
-	statusInput_.attr('class','status');
+	statusInput_.attr('class','userStory');
 	$(linkElement).parent('p').hide();
 	$(linkElement).parent('p').parent().append(statusInput_);
 	statusInput_.val(getUserStory(getUserHangoutId()));
