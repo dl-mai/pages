@@ -353,6 +353,36 @@ function onSubmitStatus() {
 }
 
 /**
+ * Displays the input allowing a user to set his status.
+ * @param {!Element} linkElement The link that triggered this handler.
+ */
+function onSetUserStory(linkElement) {
+	statusVisible_ = true;
+	statusInput_.fadeIn(500);
+	$(linkElement).parent('p').hide();
+	$(linkElement).parent('p').parent().append(statusInput_);
+	statusInput_.val(getUserStory(getUserHangoutId()));
+	// Since faceIn is a black box, focus & select only if the input is already
+	// visible.
+	statusInput_.filter(':visible').focus().select();
+}
+
+/**
+ * Sets the user's status message and hides the input element.
+ */
+function onSubmitUserStory() {
+	if (statusVisible_) {
+		statusVisible_ = false;
+		var statusVal = statusInput_.val();
+		statusVal = statusVal.length < MAX_STATUS_LENGTH ? statusVal :
+			statusVal.substr(0, MAX_STATUS_LENGTH);
+		setStatusMessage(statusVal);
+		statusForm_.append(statusInput_);
+		statusInput_.hide();
+		render();
+	}
+}
+/**
  * Gets the value of opt_stateKey in the shared state, or the entire state
  * object if opt_stateKey is null or not supplied.
  * @param {?string=} opt_stateKey The key to get from the state object.
