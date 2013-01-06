@@ -522,7 +522,18 @@ function createUserStory(data) {
 	var headLine = $('<p />')
 		.text('Create new user story');
 	var statusText = '';
-
+	var ansLink = $('<a />')
+		.attr('href', '#')
+		.text('toggle')
+		.click(function() {
+			return false;
+		});
+	var showBtn = $('<div />')
+		.addClass('button')
+		.append(ansLink)
+		.mouseup(hideButtonHandler());
+	controlRow.append(showBtn);
+	
 	userStory.append(headLine);
 	var triggerLink = $('<a href="#" class="link" />')
 		.text(statusText ? 'Edit' : 'Add Story')
