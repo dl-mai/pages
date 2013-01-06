@@ -530,7 +530,7 @@ function createUserStory(data) {
 	};
 	var ansLink = $('<a />')
 		.attr('href', '#')
-		.text('toggle')
+		.text('Vote1')
 		.click(function() {
 			return false;
 		});
