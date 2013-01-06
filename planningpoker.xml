@@ -573,7 +573,7 @@ function prepareAppDOM() {
 		if (statusVisible_) {
 			console.log("if statusVisible_");
 			console.log(statusInput_.attr('status'));
-			if(statusInput_.attr('status') == 'status'){
+			if(statusInput_.attr('class') == 'status'){
 				defer(onSubmitStatus);
 			}
 			else {
