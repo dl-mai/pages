@@ -327,12 +327,11 @@ function setVoteStatus(message) {
 }
 
 /**
- * @param {!string} participantId.
+ * @param {!string} userStoryID.
  * @return {string} The user story.
  */
-function getUserStory(participantId) {
-	console.dir(makeUserKey(participantId, 'userStory'));
-	return getState(makeUserKey(participantId, 'userStory'));
+function getUserStory(userStoryID) {
+	return getState(makeUserKey(userStoryID, 'userStory'));
 }
 
 /**
