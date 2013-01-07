@@ -842,7 +842,7 @@ function createParticipantElement(participant) {
 			if (apiInitEvent.isApiReady) {
 				prepareAppDOM();
 				gapi.hangout.data.setValue('popel', test);
-				gapi.hangout.data.setValue('popel', test);console.dir(gapi.hangout.data.getState());
+				console.dir(gapi.hangout.data.getState());
 				gapi.hangout.data.onStateChanged.add(function(stateChangeEvent) {
 					updateLocalDataState(stateChangeEvent.state,
 						stateChangeEvent.metadata);
