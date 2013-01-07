@@ -854,6 +854,7 @@ function createParticipantElement(participant) {
 					updateLocalDataState(stateChangeEvent.state,
 						stateChangeEvent.metadata);
 					console.dir(state_);
+					getAllUserStories();
 				});
 				gapi.hangout.onParticipantsChanged.add(function(partChangeEvent) {
 					updateLocalParticipantsData(partChangeEvent.participants);
