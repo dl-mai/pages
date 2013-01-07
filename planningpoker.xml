@@ -460,7 +460,7 @@ function getAllUserStories (){
 			allUserStories[key] = state_[key]
 		}
 		else {
-
+			noStories[key] = state_[key]
 		}
 	}
 	console.dir("found story:" + allUserStories);
