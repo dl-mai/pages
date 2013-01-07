@@ -649,7 +649,7 @@ function createUserStory (Data){
 	console.log("bla");
 	console.dir(storyList);
 	try{
-		for(var story in userStoryList ) {
+		for(var story in storyList ) {
 			console.dir(story);
 			console.dir(userStoryList[story]);
 //			var userStorySingle = $('<li />')
