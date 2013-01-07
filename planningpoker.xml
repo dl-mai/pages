@@ -409,7 +409,8 @@ function onSubmitUserStory() {
 		userStoryForm_.append(userStoryInput_);
 		userStoryInput_.hide();
 
-		userStorySingle = $('<li />');
+		userStorySingle = $('<li />')
+			.val(userStoryVal);
 
 		render();
 	}
