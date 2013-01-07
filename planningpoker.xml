@@ -665,7 +665,7 @@ function createUserStory (Data){
 				.append(ansLink)
 				.mouseup(function() {
 					return function() {
-						$('.respondList').show();
+						ansLink.css('background-color', 'blue');
 						console.log("pressed");
 					}}
 				);
