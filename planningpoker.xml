@@ -448,7 +448,12 @@ function getMetadata(opt_metadataKey) {
 function getUserHangoutId() {
 	return gapi.hangout.getLocalParticipantId();
 }
-
+/**
+ *
+ */
+function getAllUserStories (){
+	
+}
 /**
  * Renders the app.
  */
