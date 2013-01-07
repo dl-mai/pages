@@ -458,9 +458,6 @@ function getAllUserStories (){
 		if(key.indexOf(':userStory') !== -1) {
 			allUserStories[key] = state_[key];
 		}
-		else {
-			noStories[key] = state_[key];
-		}
 	}
 	return allUserStories;
 }
