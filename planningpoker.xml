@@ -656,8 +656,7 @@ function createUserStory (Data){
 		});
 	var showBtn = $('<div />')
 		.addClass('button')
-		.append(ansLink)
-		.mouseup(hideButtonHandler());
+		.append(ansLink);
 	try{
 		for(var story in storyList ) {
 			var userStorySingle = $('<li />')
