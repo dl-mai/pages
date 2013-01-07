@@ -411,7 +411,7 @@ function onSubmitUserStory() {
 
 		userStorySingle = $('<li />')
 			.val(userStoryVal);
-		$('.story-list').append(userStorySingle, $('<h2/>').val('this is this'));
+		$('.story-list').append(userStorySingle, $('<h2/>').text('this is this'));
 		console.dir(userStoryList_.attr('class'));
 		console.dir(userStoryList_);
 		var headLine = $('<p />')
