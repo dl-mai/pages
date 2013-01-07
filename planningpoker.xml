@@ -636,7 +636,8 @@ function prepareAppDOM() {
  */
 function createUserStory(data) {
 	var userStory = $('<div />');
-	var userStoryList = $('<ul />');
+	var userStoryList = $('<ul />')
+		.attr('class', 'story-list');
 	userStoryList_ = userStoryList;
 	var headLine = $('<p />')
 		.text('Create new user story');
