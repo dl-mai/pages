@@ -644,7 +644,7 @@ function prepareAppDOM() {
  * @return {Element} The DOM element displaying the app's main interface.
  */
 function createUserStory (Data){
-	var userStoryList = $('<ul />')
+	var storyListDOM = $('<ul />')
 	var storyList = getAllUserStories();
 	console.log("bla");
 	console.dir(storyList);
@@ -654,7 +654,7 @@ function createUserStory (Data){
 			console.dir(userStoryList[story]);
 //			var userStorySingle = $('<li />')
 //				.val(userStoryList[story]);
-//			userStoryList.append(userStorySingle, $('<h2/>').text(userStoryList[story]));
+//			storyListDOM.append(userStorySingle, $('<h2/>').text(userStoryList[story]));
 		}
 	} catch (e) {
 		console.dir(e);
