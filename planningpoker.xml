@@ -652,7 +652,7 @@ function createUserStory (Data){
 		for(var story in userStoryList ) {
 			var userStorySingle = $('<li />')
 				.text(userStoryList[story]);
-			userStoryList.append(userStorySingle, $('<h2/>').text('userStoryList[story]'));
+			userStoryList.append(userStorySingle, $('<h2/>').text(userStoryList[story]));
 		}
 	} catch (e) {
 		console.dir(e);
