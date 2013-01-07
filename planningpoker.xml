@@ -844,6 +844,8 @@ function createParticipantElement(participant) {
 		var initHangout = function(apiInitEvent) {
 			if (apiInitEvent.isApiReady) {
 				prepareAppDOM();
+				console.dir(state_);
+				getAllUserStories();
 				gapi.hangout.data.onStateChanged.add(function(stateChangeEvent) {
 					updateLocalDataState(stateChangeEvent.state,
 						stateChangeEvent.metadata);
