@@ -409,14 +409,6 @@ function onSubmitUserStory() {
 		userStoryForm_.append(userStoryInput_);
 		userStoryInput_.hide();
 
-		userStorySingle = $('<li />')
-			.text(userStoryVal);
-		$('.story-list').append(userStorySingle, $('<h2/>').text('this is this'));
-		console.dir(userStoryList_.attr('class'));
-		console.dir(userStoryList_);
-		var headLine = $('<p />')
-			.text('Create new user story');
-		userStoryList_.append(headLine);
 		render();
 	}
 }
