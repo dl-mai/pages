@@ -696,7 +696,7 @@ function createAnswersTable(data) {
 				.text(' (' + data[ans].length + ')');
 			var ansLink = $('<a />')
 				.attr('href', '#')
-				.text(DEFAULT_STATUS[ans]) g
+				.text(DEFAULT_STATUS[ans])
 				.append(numAnswered)
 				.click(function() {
 					return false;
