@@ -401,6 +401,9 @@ function onSubmitUserStory() {
 		setUserStory(userStoryVal);
 		userStoryForm_.append(userStoryInput_);
 		userStoryInput_.hide();
+
+		
+
 		render();
 	}
 }
@@ -683,7 +686,7 @@ function createAnswersTable(data) {
 				.text(' (' + data[ans].length + ')');
 			var ansLink = $('<a />')
 				.attr('href', '#')
-				.text(DEFAULT_STATUS[ans])
+				.text(DEFAULT_STATUS[ans]) g
 				.append(numAnswered)
 				.click(function() {
 					return false;
