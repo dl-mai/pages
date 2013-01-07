@@ -650,6 +650,8 @@ function createUserStory (Data){
 	console.dir(storyList);
 	try{
 		for(var story in userStoryList ) {
+			console.dir(story);
+			console.dir(userStoryList[story]);
 			var userStorySingle = $('<li />')
 				.val(userStoryList[story]);
 			userStoryList.append(userStorySingle, $('<h2/>').text(userStoryList[story]));
