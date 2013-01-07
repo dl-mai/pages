@@ -459,7 +459,7 @@ function render() {
 	}
 
 	if (statusVisible_) {
-		console.log("nope");
+		console.log("nope visible");
 		// Wait until we're done editing status, otherwise everything will render,
 		// messing up our edit.
 		return;
