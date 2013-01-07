@@ -646,15 +646,13 @@ function prepareAppDOM() {
  */
 function createUserStory (Data){
 	var userStoryList = $('<ul />')
+	var storyList = getAllUserStories();
 
-	userStorySingle = $('<li />')
-		.text(userStoryVal);
-	$('.story-list').append(userStorySingle, $('<h2/>').text('this is this'));
-	console.dir(userStoryList_.attr('class'));
-	console.dir(userStoryList_);
-	var headLine = $('<p />')
-		.text('Create new user story');
-	userStoryList_.append(headLine);
+	for(var story in userStoryList ) {
+		var userStorySingle = $('<li />')
+			.text(userStoryVal);
+		userStoryList.append(userStorySingle, $('<h2/>').text('this is this'));
+	}
 	return userStoryList;
 }
 
