@@ -664,7 +664,7 @@ function createUserStory (Data){
 				.css('width', '200px')
 				.append(ansLink)
 				.mouseup(function() {
-						this.children(0).css('background-color', 'blue');
+						this.children().css('background-color', 'blue');
 						console.log("pressed");
 					}
 				);
