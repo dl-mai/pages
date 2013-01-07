@@ -679,18 +679,8 @@ function createAddUserStory(data) {
 			console.log("pressed");
 		};
 	};
-	var ansLink = $('<a />')
-		.attr('href', '#')
-		.text('Vote 1')
-		.click(function() {
-			return false;
-		});
-	var showBtn = $('<div />')
-		.addClass('button')
-		.append(ansLink)
-		.mouseup(hideButtonHandler());
 
-	userStory.append(headLine, showBtn);
+	userStory.append(headLine);
 	var triggerLink = $('<a href="#" class="link" />')
 		.text(statusText ? 'Edit' : 'Add Story')
 		.click(function() {
