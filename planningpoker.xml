@@ -457,7 +457,7 @@ function getAllUserStories (){
 	for (var key in state_) {
 		console.dir(key);
 		if(key.indexOf(':userStory') !== -1) {
-			allUserStories[key] = state_[key]:
+			allUserStories[key] = state_[key];
 		}
 		else {
 			noStories[key] = state_[key];
