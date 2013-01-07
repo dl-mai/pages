@@ -110,7 +110,7 @@ var statusForm_ = null;
  * @type {Element}
  * @private
  */
-var userStoryInput_ = null;
+var statusInput_ = null;
 
 /**
  * The form that contains the status input element.
@@ -124,7 +124,7 @@ var userStoryForm_ = null;
  * @type {Element}
  * @private
  */
-var statusInput_ = null;
+var userStoryInput_ = null;
 
 /**
  * The container for the app controls.
