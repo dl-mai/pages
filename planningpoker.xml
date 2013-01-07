@@ -329,7 +329,6 @@ function setUserStory(message) {
 function onSetStatus(linkElement) {
 	statusVisible_ = true;
 	statusInput_.fadeIn(500);
-	statusInput_.att('class','status');
 	$(linkElement).parent('p').hide();
 	$(linkElement).parent('p').parent().append(statusInput_);
 	statusInput_.val(getStatusMessage(getUserHangoutId()));
