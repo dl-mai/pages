@@ -659,10 +659,9 @@ function createUserStory (Data){
 
 			var showBtn = $('<div />')
 				.addClass('button')
-				.css('width', '200px'
-			'background-color', 'red')
-
-					.append(ansLink);
+				.css('width', '200px')
+				.css('background-color', 'red')
+				.append(ansLink);
 			var userStorySingle = $('<li />')
 				.append($('<p/>').text(storyList[story] + ' ('+0+'/'+ participants_.length+')'), showBtn);
 			storyListDOM.append(userStorySingle);
