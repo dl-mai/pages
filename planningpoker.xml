@@ -453,12 +453,18 @@ function getUserHangoutId() {
  */
 function getAllUserStories (){
 	var allUserStories = new Array();
+	var noStories = new Array();
 	for (var key in state_) {
 		console.dir(key);
 		if(key.indexOf(':userStory') !== -1) {
-			console.log("found story:" + key);
+			allUserStories[key] = state_[key]
+		}
+		else {
+
 		}
 	}
+	console.dir("found story:" + allUserStories);
+	console.dir("found story:" + noStories);
 }
 /**
  * Renders the app.
