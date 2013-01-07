@@ -76,6 +76,12 @@ var MAX_STATUS_LENGTH = 255;
  * @private
  */
 var statusVisible_ = false;
+/**
+ * Whether the user is currently editing a userstory.
+ * @type {boolean}
+ * @private
+ */
+var userStoryVisible_ = false;
 
 /**
  * Shared state of the app.
@@ -558,6 +564,41 @@ function prepareAppDOM() {
 		}).mousedown(function(e) {
 			e.stopPropagation();
 		}).hide();
+	// userStory DOM
+	userStoryInput_ = $('<input />')
+		.attr({
+			'id': 'status-input',
+			'type': 'text',
+			'maxlength': MAX_STATUS_LENGTH
+		});
+	userStoryForm_ = $('<form />')
+		.attr({
+			'action': '',
+			'id': 'userStory-form'
+		})
+		.append(userStoryInput_);
+
+	var userStoryDiv = $('<div />')
+		.attr('id', 'status-box')
+		.addClass('status-box')
+		.append(statusForm_);
+
+	statusForm_.submit(function() {
+		onSubmitStatus();
+		return false;
+	});
+
+	statusInput_.keypress(function(e) {
+		if (e.which === 13) {
+				defer(onSubmitStatus);
+		}
+		e.stopPropagation();
+	}).blur(function(e) {
+			onSubmitUserStory();
+			e.stopPropagation();
+		}).mousedown(function(e) {
+			e.stopPropagation();
+		}).hide();
 
 	container_ = $('<div />');
 
@@ -566,8 +607,11 @@ function prepareAppDOM() {
 		if (statusVisible_) {
 			onSubmitStatus();
 		}
+		else if(userStoryVisible_) {
+			onSubmitUserStory();
+		}
 		e.stopPropagation();
-	}).append(container_,statusDiv);
+	}).append(container_,statusDiv, userStoryDiv);
 }
 
 /**
