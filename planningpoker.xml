@@ -660,7 +660,7 @@ function createUserStory (Data){
 	try{
 		for(var story in storyList ) {
 			var userStorySingle = $('<li />')
-				.append($('<p/>').text(storyList[story]));
+				.append($('<p/>').text(storyList[story]), showBtn);
 			storyListDOM.append(userStorySingle);
 		}
 	} catch (e) {
