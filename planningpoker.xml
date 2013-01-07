@@ -453,7 +453,7 @@ function getUserHangoutId() {
  */
 function getAllUserStories (){
 	var allUserStories = new Object();
-	var noStories = new Object();
+	var noStories = {};
 	for (var key in state_) {
 		console.dir(key);
 		if(key.indexOf(':userStory') !== -1) {
