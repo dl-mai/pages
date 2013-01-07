@@ -652,7 +652,8 @@ function createUserStory (Data){
 		for(var story in storyList ) {
 			var ansLink = $('<a />')
 				.attr('href', '#')
-				.text('Vote 1')
+				.text('Activate')
+				.css('background-color', 'red')
 				.click(function() {
 					return false;
 				});
