@@ -657,7 +657,7 @@ function createUserStory (Data){
 	}
 	catch (Exception e){
 		console.dir(e);
-	}
+	};
 	return userStoryList;
 }
 
