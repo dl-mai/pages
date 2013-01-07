@@ -654,10 +654,9 @@ function createUserStory (Data){
 				.text(userStoryList[story]);
 			userStoryList.append(userStorySingle, $('<h2/>').text('this is this'));
 		}
-	}
-	catch (Exception e){
+	} catch (Exception e) {
 		console.dir(e);
-	};
+	}
 	return userStoryList;
 }
 
