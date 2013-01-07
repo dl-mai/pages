@@ -110,6 +110,20 @@ var statusForm_ = null;
  * @type {Element}
  * @private
  */
+var userStoryInput_ = null;
+
+/**
+ * The form that contains the status input element.
+ * @type {Element}
+ * @private
+ */
+var userStoryForm_ = null;
+
+/**
+ * The element used to input status messages.
+ * @type {Element}
+ * @private
+ */
 var statusInput_ = null;
 
 /**
