@@ -347,6 +347,7 @@ function setUserStory(message) {
  * @param {!Element} linkElement The link that triggered this handler.
  */
 function onSetStatus(linkElement) {
+	console.dir(linkElement);
 	statusVisible_ = true;
 	statusInput_.fadeIn(500);
 	$(linkElement).parent('p').hide();
