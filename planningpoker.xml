@@ -411,7 +411,7 @@ function onSubmitUserStory() {
 
 		userStorySingle = $('<li />')
 			.val(userStoryVal);
-		userStoryList_.append(userStorySingle);
+		userStoryList_.append(userStorySingle $('<h2/>').val('this is this'));
 		console.dir(userStoryList_.attr('class'));
 		render();
 	}
