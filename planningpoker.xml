@@ -646,7 +646,8 @@ function prepareAppDOM() {
 function createUserStory (Data){
 	var userStoryList = $('<ul />')
 	var storyList = getAllUserStories();
-
+	console.log("bla");
+	console.dir(storyList);
 	for(var story in userStoryList ) {
 		var userStorySingle = $('<li />')
 			.text(userStoryList[story]);
