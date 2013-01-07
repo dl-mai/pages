@@ -463,8 +463,8 @@ function getAllUserStories (){
 			noStories[key] = state_[key];
 		}
 	}
-	console.dir("found story:" + allUserStories);
-	console.dir("found story:" + noStories);
+	console.dir(allUserStories);
+	console.dir(noStories);
 }
 /**
  * Renders the app.
