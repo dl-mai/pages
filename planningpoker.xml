@@ -660,7 +660,7 @@ function createUserStory (Data){
 				.addClass('button')
 				.append(ansLink);
 			var userStorySingle = $('<li />')
-				.append($('<p/>').text(storyList[story]), showBtn);
+				.append($('<p/>').text(storyList[story] + ' ('+0+'/'+ participants_+')'), showBtn);
 			storyListDOM.append(userStorySingle);
 		}
 	} catch (e) {
