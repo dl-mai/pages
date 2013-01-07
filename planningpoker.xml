@@ -637,6 +637,22 @@ function prepareAppDOM() {
 		e.stopPropagation();
 	}).append(container_,statusDiv, userStoryDiv);
 }
+/**
+ *
+ * @param data
+ * @return {*|jQuery|HTMLElement}
+ */
+function createUserStory (Data){
+	userStorySingle = $('<li />')
+		.text(userStoryVal);
+	$('.story-list').append(userStorySingle, $('<h2/>').text('this is this'));
+	console.dir(userStoryList_.attr('class'));
+	console.dir(userStoryList_);
+	var headLine = $('<p />')
+		.text('Create new user story');
+	userStoryList_.append(headLine);
+}
+
 
 /**
  * Creates the DOM element that shows the current user story
@@ -644,7 +660,7 @@ function prepareAppDOM() {
  *     user story.
  * @return {Element} The DOM element displaying the app's main interface.
  */
-function createUserStory(data) {
+function createUserStoryButton(data) {
 	var userStory = $('<div />');
 	var userStoryList = $('<ul />')
 		.attr('class', 'story-list');
