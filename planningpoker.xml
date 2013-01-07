@@ -452,7 +452,9 @@ function getUserHangoutId() {
  *
  */
 function getAllUserStories (){
-
+	for (var key in state_) {
+		console.dir(key);
+	}
 }
 /**
  * Renders the app.
