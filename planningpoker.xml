@@ -452,7 +452,7 @@ function getUserHangoutId() {
  *
  */
 function getAllUserStories (){
-	
+
 }
 /**
  * Renders the app.
@@ -846,9 +846,6 @@ function createParticipantElement(participant) {
 					updateLocalDataState(stateChangeEvent.state,
 						stateChangeEvent.metadata);
 					console.dir(state_);
-					for (var key in state_) {
-						console.dir(key);
-					}
 				});
 				gapi.hangout.onParticipantsChanged.add(function(partChangeEvent) {
 					updateLocalParticipantsData(partChangeEvent.participants);
