@@ -61,7 +61,7 @@ DEFAULT_STATUS[Answers.THREE] = '3';
 DEFAULT_STATUS[Answers.FIVE] = '5';
 DEFAULT_STATUS[Answers.EIGHT] = '8';
 DEFAULT_STATUS[Answers.UNKNOWN] = 'No idea!';
-DEFAULT_STATUS[Answers.COFFEE] = 'Need Coffee!';
+DEFAULT_STATUS[Answers.COFFEE] = 'Coffee!';
 
 /**
  * The maximum length allowed for user status.
