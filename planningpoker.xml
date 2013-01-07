@@ -660,7 +660,7 @@ function createUserStory (Data){
  *     user story.
  * @return {Element} The DOM element displaying the app's main interface.
  */
-function createUserStoryButton(data) {
+function createAddUserStory(data) {
 	var userStory = $('<div />');
 	var userStoryList = $('<ul />')
 		.attr('class', 'story-list');
