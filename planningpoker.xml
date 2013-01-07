@@ -648,10 +648,15 @@ function createUserStory (Data){
 	var storyList = getAllUserStories();
 	console.log("bla");
 	console.dir(storyList);
-	for(var story in userStoryList ) {
-		var userStorySingle = $('<li />')
-			.text(userStoryList[story]);
-		userStoryList.append(userStorySingle, $('<h2/>').text('this is this'));
+	try{
+		for(var story in userStoryList ) {
+			var userStorySingle = $('<li />')
+				.text(userStoryList[story]);
+			userStoryList.append(userStorySingle, $('<h2/>').text('this is this'));
+		}
+	}
+	catch (Exception e){
+		console.dir(e);
 	}
 	return userStoryList;
 }
