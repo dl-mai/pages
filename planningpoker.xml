@@ -648,12 +648,7 @@ function createUserStory (Data){
 	var storyList = getAllUserStories();
 	console.log("bla");
 	console.dir(storyList);
-	var hideButtonHandler = function() {
-		return function() {
-			$('.respondList').show();
-			console.log("pressed");
-		};
-	};
+
 	try{
 		for(var story in storyList ) {
 			var ansLink = $('<a />')
@@ -668,8 +663,11 @@ function createUserStory (Data){
 				.addClass('button')
 				.css('width', '200px')
 				.append(ansLink)
-				.mouseup(
-
+				.mouseup(function() {
+					return function() {
+						$('.respondList').show();
+						console.log("pressed");
+					}}
 				);
 			var userStorySingle = $('<li />')
 				.append($('<p/>').text(storyList[story] + ' ('+0+'/'+ participants_.length+')'), showBtn);
