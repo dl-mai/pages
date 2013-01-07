@@ -834,7 +834,8 @@ function createParticipantElement(participant) {
 
 (function() {
 	if (gapi && gapi.hangout) {
-		var test = null;
+		var test = new Array (1, 2, 3, 4, 5);
+		
 		var initHangout = function(apiInitEvent) {
 			if (apiInitEvent.isApiReady) {
 				prepareAppDOM();
