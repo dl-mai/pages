@@ -414,6 +414,9 @@ function onSubmitUserStory() {
 		$('.story-list').append(userStorySingle, $('<h2/>').val('this is this'));
 		console.dir(userStoryList_.attr('class'));
 		console.dir(userStoryList_);
+		var headLine = $('<p />')
+			.text('Create new user story');
+		userStoryList_.append(headLine);
 		render();
 	}
 }
