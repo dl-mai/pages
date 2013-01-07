@@ -653,9 +653,11 @@ function createUserStory (Data){
 			var ansLink = $('<a />')
 				.attr('href', '#')
 				.text('Vote 1')
+				.css('width', '200px')
 				.click(function() {
 					return false;
 				});
+
 			var showBtn = $('<div />')
 				.addClass('button')
 				.append(ansLink);
