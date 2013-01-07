@@ -340,7 +340,7 @@ function getUserStory(participantId) {
  * @param {!string} message The user's new status.
  */
 function setUserStory(message) {
-	saveValue(makeUserKey(getUserHangoutId(), 'voteStatus'), message);
+	saveValue(makeUserKey(getUserHangoutId(), 'userStory'), message);
 }
 /**
  * Displays the input allowing a user to set his status.
