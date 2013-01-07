@@ -655,7 +655,7 @@ function createUserStory (Data){
 	var headLine = $('<p />')
 		.text('Create new user story');
 	userStoryList_.append(headLine);
-	return userStoryList
+	return userStoryList;
 }
 
 
