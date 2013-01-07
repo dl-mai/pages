@@ -637,12 +637,16 @@ function prepareAppDOM() {
 		e.stopPropagation();
 	}).append(container_,statusDiv, userStoryDiv);
 }
+
 /**
- *
- * @param data
- * @return {*|jQuery|HTMLElement}
+ * Creates the DOM element that shows the current user story
+ * @param {!Object.<!string, *>} data The information used to populate the
+ *     user story.
+ * @return {Element} The DOM element displaying the app's main interface.
  */
 function createUserStory (Data){
+	var userStoryList = $('<ul />')
+
 	userStorySingle = $('<li />')
 		.text(userStoryVal);
 	$('.story-list').append(userStorySingle, $('<h2/>').text('this is this'));
@@ -651,6 +655,7 @@ function createUserStory (Data){
 	var headLine = $('<p />')
 		.text('Create new user story');
 	userStoryList_.append(headLine);
+	return userStoryList
 }
 
 
@@ -662,7 +667,6 @@ function createUserStory (Data){
  */
 function createAddUserStory(data) {
 	var userStory = $('<div />');
-	var userStoryList = $('<ul />')
 		.attr('class', 'story-list');
 	userStoryList_ = userStoryList;
 	var headLine = $('<p />')
@@ -685,7 +689,7 @@ function createAddUserStory(data) {
 		.append(ansLink)
 		.mouseup(hideButtonHandler());
 
-	userStory.append(userStoryList_, headLine, showBtn);
+	userStory.append(headLine, showBtn);
 	var triggerLink = $('<a href="#" class="link" />')
 		.text(statusText ? 'Edit' : 'Add Story')
 		.click(function() {
