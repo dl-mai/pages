@@ -399,7 +399,7 @@ function onSubmitUserStory() {
 		var userStoryVal = userStoryInput_.val();
 		userStoryVal = userStoryVal.length < MAX_STATUS_LENGTH ? userStoryVal :
 			userStoryVal.substr(0, MAX_STATUS_LENGTH);
-		onSetUserStory(userStoryVal);
+		setUserStory(userStoryVal);
 		userStoryForm_.append(userStoryInput_);
 		userStoryInput_.hide();
 		render();
@@ -431,7 +431,6 @@ function getMetadata(opt_metadataKey) {
  * @return {string} The user's ephemeral id.
  */
 function getUserHangoutId() {
-	console.log(gapi.hangout.getLocalParticipantId());
 	return gapi.hangout.getLocalParticipantId();
 }
 
