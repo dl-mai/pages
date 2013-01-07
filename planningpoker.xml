@@ -657,7 +657,7 @@ function createUserStory (Data){
 	} catch (e) {
 		console.dir(e);
 	}
-	return userStoryList;
+	return storyListDOM;
 }
 
 
