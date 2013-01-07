@@ -664,7 +664,7 @@ function createUserStory (Data){
  * @return {Element} The DOM element displaying the app's main interface.
  */
 function createAddUserStory(data) {
-	var userStory = $('<div />');
+	var userStory = $('<div />')
 		.attr('class', 'story-list');
 	var headLine = $('<p />')
 		.text('Create new user story');
