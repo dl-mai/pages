@@ -452,10 +452,11 @@ function getUserHangoutId() {
  *
  */
 function getAllUserStories (){
+	console.dir("start");
 	for (var key in state_) {
 		console.dir(key);
 		if(key.indexOf(':userStory') !== -1) {
-			console.log(userstory + key);
+			console.log("found story:" + key);
 		}
 	}
 }
