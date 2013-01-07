@@ -463,8 +463,7 @@ function getAllUserStories (){
 			noStories[key] = state_[key];
 		}
 	}
-	console.dir(allUserStories);
-	console.dir(noStories);
+	return allUserStories:
 }
 /**
  * Renders the app.
