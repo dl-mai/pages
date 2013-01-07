@@ -339,8 +339,7 @@ function getUserStory(userStoryID) {
  * @param {!string} message The user's new status.
  */
 function setUserStory(message) {
-	console.dir(new Date().getTime());
-	saveValue(makeUserKey(getUserHangoutId(), 'userStory'), message);
+	saveValue(makeUserKey(new Date().getTime(), 'userStory'), message);
 }
 /**
  * Displays the input allowing a user to set his status.
