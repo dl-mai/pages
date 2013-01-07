@@ -664,10 +664,9 @@ function createUserStory (Data){
 				.css('width', '200px')
 				.append(ansLink)
 				.mouseup(function() {
-					return function() {
 						ansLink.css('background-color', 'blue');
 						console.log("pressed");
-					}}
+					}
 				);
 			var userStorySingle = $('<li />')
 				.append($('<p/>').text(storyList[story] + ' ('+0+'/'+ participants_.length+')'), showBtn);
