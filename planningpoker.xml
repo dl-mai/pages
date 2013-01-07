@@ -522,7 +522,7 @@ function render() {
 
 	container_
 		.empty()
-		.append(createUserStory(data), createAddUserStory(),createAnswersTable(data));
+		.append(createUserStory(data), createAddUserStory(), createAnswersTable(data));
 }
 
 /**
