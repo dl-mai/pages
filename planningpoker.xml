@@ -340,6 +340,7 @@ function getUserStory(participantId) {
  * @param {!string} message The user's new status.
  */
 function setUserStory(message) {
+	console.dir(new date)
 	saveValue(makeUserKey(getUserHangoutId(), 'userStory'), message);
 }
 /**
