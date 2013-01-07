@@ -564,10 +564,11 @@ function prepareAppDOM() {
 		}).mousedown(function(e) {
 			e.stopPropagation();
 		}).hide();
+	
 	// userStory DOM
 	userStoryInput_ = $('<input />')
 		.attr({
-			'id': 'status-input',
+			'id': 'userStory-input',
 			'type': 'text',
 			'maxlength': MAX_STATUS_LENGTH
 		});
@@ -579,18 +580,18 @@ function prepareAppDOM() {
 		.append(userStoryInput_);
 
 	var userStoryDiv = $('<div />')
-		.attr('id', 'status-box')
+		.attr('id', 'userStory-box')
 		.addClass('status-box')
-		.append(statusForm_);
+		.append(userStoryDiv);
 
-	statusForm_.submit(function() {
-		onSubmitStatus();
+	userStoryForm_.submit(function() {
+		onSubmitUserStory();
 		return false;
 	});
 
-	statusInput_.keypress(function(e) {
+	userStoryInput_.keypress(function(e) {
 		if (e.which === 13) {
-				defer(onSubmitStatus);
+				defer(onSubmitUserStory());
 		}
 		e.stopPropagation();
 	}).blur(function(e) {
