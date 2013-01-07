@@ -453,6 +453,7 @@ function getUserHangoutId() {
  * Renders the app.
  */
 function render() {
+	console.log("nope");
 	if (!state_ || !metadata_ || !participants_ || !container_) {
 		return;
 	}
