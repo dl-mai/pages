@@ -410,7 +410,7 @@ function onSubmitUserStory() {
 		userStoryInput_.hide();
 
 		userStorySingle = $('<li />')
-			.val(userStoryVal);
+			.text(userStoryVal);
 		$('.story-list').append(userStorySingle, $('<h2/>').text('this is this'));
 		console.dir(userStoryList_.attr('class'));
 		console.dir(userStoryList_);
