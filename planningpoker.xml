@@ -140,6 +140,13 @@ var userStoryInput_ = null;
 var container_ = null;
 
 /**
+ * The container for the app controls.
+ * @type {Element}
+ * @private
+ */
+var userStoryList_ = null;
+
+/**
  * Executes the provided function after a minor delay.
  * @param {function()} func The function to execute.
  */
@@ -402,7 +409,7 @@ function onSubmitUserStory() {
 		userStoryForm_.append(userStoryInput_);
 		userStoryInput_.hide();
 
-		
+
 
 		render();
 	}
@@ -627,6 +634,7 @@ function prepareAppDOM() {
  */
 function createUserStory(data) {
 	var userStory = $('<div />');
+	var userStoryList = $('<ul />');
 	var headLine = $('<p />')
 		.text('Create new user story');
 	var statusText = '';
