@@ -463,7 +463,7 @@ function getAllUserStories (){
 			noStories[key] = state_[key];
 		}
 	}
-	return allUserStories:
+	return allUserStories;
 }
 /**
  * Renders the app.
