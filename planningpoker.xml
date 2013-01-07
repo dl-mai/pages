@@ -453,12 +453,13 @@ function getUserHangoutId() {
  * Renders the app.
  */
 function render() {
-	console.log("nope");
 	if (!state_ || !metadata_ || !participants_ || !container_) {
+		console.log("nope");
 		return;
 	}
 
 	if (statusVisible_) {
+		console.log("nope");
 		// Wait until we're done editing status, otherwise everything will render,
 		// messing up our edit.
 		return;
