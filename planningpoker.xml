@@ -378,28 +378,28 @@ function onSubmitStatus() {
  * @param {!Element} linkElement The link that triggered this handler.
  */
 function onSetUserStory(linkElement) {
-	statusVisible_ = true;
-	statusInput_.fadeIn(500);
+	userStoryVisible_ = true;
+	userStoryInput_.fadeIn(500);
 	$(linkElement).parent('p').hide();
-	$(linkElement).parent('p').parent().append(statusInput_);
-	statusInput_.val(getUserStory(getUserHangoutId()));
+	$(linkElement).parent('p').parent().append(userStoryInput_);
+	userStoryInput_.val(getUserStory(getUserHangoutId()));
 	// Since faceIn is a black box, focus & select only if the input is already
 	// visible.
-	statusInput_.filter(':visible').focus().select();
+	userStoryInput_.filter(':visible').focus().select();
 }
 
 /**
  * Sets the user's status message and hides the input element.
  */
 function onSubmitUserStory() {
-	if (statusVisible_) {
-		statusVisible_ = false;
-		var statusVal = statusInput_.val();
-		statusVal = statusVal.length < MAX_STATUS_LENGTH ? statusVal :
-			statusVal.substr(0, MAX_STATUS_LENGTH);
-		onSetUserStory(statusVal);
-		statusForm_.append(statusInput_);
-		statusInput_.hide();
+	if (userStoryVisible_) {
+		userStoryVisible_ = false;
+		var userStoryVal = userStoryInput_.val();
+		userStoryVal = userStoryVal.length < MAX_STATUS_LENGTH ? userStoryVal :
+			userStoryVal.substr(0, MAX_STATUS_LENGTH);
+		onSetUserStory(userStoryVal);
+		userStoryForm_.append(userStoryInput_);
+		userStoryInput_.hide();
 		render();
 	}
 }
