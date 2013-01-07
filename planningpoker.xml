@@ -564,7 +564,7 @@ function prepareAppDOM() {
 		}).mousedown(function(e) {
 			e.stopPropagation();
 		}).hide();
-	
+
 	// userStory DOM
 	userStoryInput_ = $('<input />')
 		.attr({
@@ -647,6 +647,7 @@ function createUserStory(data) {
 	var triggerLink = $('<a href="#" class="link" />')
 		.text(statusText ? 'Edit' : 'Add Story')
 		.click(function() {
+			onSetUserStory(this);
 			return false;
 		});
 
