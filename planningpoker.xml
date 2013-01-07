@@ -449,7 +449,7 @@ function getUserHangoutId() {
 	return gapi.hangout.getLocalParticipantId();
 }
 /**
- * @ return {array}
+ * @ return {object}
  */
 function getAllUserStories (){
 	var allUserStories = new Object();
