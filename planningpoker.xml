@@ -582,7 +582,7 @@ function prepareAppDOM() {
 
 	var userStoryDiv = $('<div />')
 		.attr('id', 'userStory-box')
-		.addClass('status-box')
+		.addClass('userStory-box')
 		.append(userStoryForm_);
 
 	userStoryForm_.submit(function() {
