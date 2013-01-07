@@ -653,15 +653,16 @@ function createUserStory (Data){
 			var ansLink = $('<a />')
 				.attr('href', '#')
 				.text('Activate')
-				.css('background-color', 'red')
 				.click(function() {
 					return false;
 				});
 
 			var showBtn = $('<div />')
 				.addClass('button')
-				.css('width', '200px')
-				.append(ansLink);
+				.css('width', '200px'
+			'background-color', 'red')
+
+					.append(ansLink);
 			var userStorySingle = $('<li />')
 				.append($('<p/>').text(storyList[story] + ' ('+0+'/'+ participants_.length+')'), showBtn);
 			storyListDOM.append(userStorySingle);
