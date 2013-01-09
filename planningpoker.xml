@@ -63,6 +63,7 @@ DEFAULT_STATUS[Answers.EIGHT] = '8';
 DEFAULT_STATUS[Answers.UNKNOWN] = 'No idea!';
 DEFAULT_STATUS[Answers.COFFEE] = 'Coffee!';
 
+
 /**
  * The maximum length allowed for user status.
  * @const
@@ -664,7 +665,7 @@ function createUserStory (Data){
 				.css('width', '200px')
 				.append(ansLink)
 				.mouseup(function() {
-						this.children().css('background-color', 'blue');
+						ansLink.css('background-color','green')
 						console.log("pressed");
 					}
 				);
