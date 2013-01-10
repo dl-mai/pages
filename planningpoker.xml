@@ -506,7 +506,7 @@ function render() {
 		// Temporary id, corresponds to getUserHangoutId().
 		var answerKey = makeUserKey(p.id, 'answer');
 		var activeUserStory = getActiveUserStory();
-		var answer = getState(answerKey);
+		var answer = getState(activeUserStory+':'+answerKey);
 		var meta = getMetadata(answerKey);
 		if (answer && data[answer]) {
 			data[answer].push(p);
