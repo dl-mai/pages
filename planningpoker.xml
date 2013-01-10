@@ -291,16 +291,16 @@ function onAnswer(newAnswer) {
 	var myId = getUserHangoutId();
 
 	var answerKey = makeUserKey(myId, 'answer');
-	var current = getState(answerKey);
 	var activeUserStory = getActiveUserStory();
+	var current = getState(activeUserStory+answerKey);
 	if(activeUserStory !== null) {
 		return;
 	}
 	if (current === newAnswer) {
-		removeValue(answerKey);
+		removeValue(activeUserStory+answerKey);
 		setVoteStatus("FALSE");
 	} else {
-		saveValue(answerKey, newAnswer);
+		saveValue(activeUserStory+answerKey, newAnswer);
 		setVoteStatus("TRUE");
 	}
 }
