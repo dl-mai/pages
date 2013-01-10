@@ -349,6 +349,23 @@ function getUserStory(userStoryID) {
 function setUserStory(message) {
 	saveValue(makeUserKey(new Date().getTime(), 'userStory'), message);
 }
+
+/**
+ * @param {!string} participantId The temporary id of a Participant.
+ * @return {string} The status of the given Participant.
+ */
+function getActiveUserStory() {
+	return getState(makeUserKey('', 'status'));
+}
+
+/**
+ * Sets the status for the current user.
+ * @param {!string} message The user's new status.
+ */
+function setActiveUserStory(message) {
+	saveValue('activeUserStory', message);
+}
+
 /**
  * Displays the input allowing a user to set his status.
  * @param {!Element} linkElement The link that triggered this handler.
@@ -666,6 +683,7 @@ function createUserStory (Data){
 				.append(ansLink)
 				.mouseup(function() {
 						ansLink.css('background-color','green');
+						setActiveUserStory(story);
 						console.log("pressed");
 					}
 				);
