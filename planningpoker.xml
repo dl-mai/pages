@@ -293,7 +293,7 @@ function onAnswer(newAnswer) {
 	var answerKey = makeUserKey(myId, 'answer');
 	var activeUserStory = getActiveUserStory();
 	var current = getState(activeUserStory+answerKey);
-	if(activeUserStory == null) {
+	if(activeUserStory = null) {
 		console.log("no active story");
 		return;
 	}
