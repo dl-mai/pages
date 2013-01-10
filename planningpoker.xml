@@ -292,7 +292,8 @@ function onAnswer(newAnswer) {
 
 	var answerKey = makeUserKey(myId, 'answer');
 	var current = getState(answerKey);
-
+	var activeUserStoy = getActiveUserStory();
+	
 	if (current === newAnswer) {
 		removeValue(answerKey);
 		setVoteStatus("FALSE");
