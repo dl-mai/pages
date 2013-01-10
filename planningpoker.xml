@@ -294,6 +294,7 @@ function onAnswer(newAnswer) {
 	var activeUserStory = getActiveUserStory();
 	var current = getState(activeUserStory+answerKey);
 	if(activeUserStory !== null) {
+		console.log("no active story");
 		return;
 	}
 	if (current === newAnswer) {
