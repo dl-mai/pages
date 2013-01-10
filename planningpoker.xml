@@ -355,15 +355,15 @@ function setUserStory(message) {
  * @return {string} The status of the given Participant.
  */
 function getActiveUserStory() {
-	return getState(makeUserKey('', 'status'));
+	return getState('activeUserStory');
 }
 
 /**
  * Sets the status for the current user.
- * @param {!string} message The user's new status.
+ * @param {!string} id The user's new status.
  */
-function setActiveUserStory(message) {
-	saveValue('activeUserStory', message);
+function setActiveUserStory(id) {
+	saveValue('activeUserStory', id);
 }
 
 /**
