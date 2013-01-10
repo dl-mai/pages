@@ -298,10 +298,10 @@ function onAnswer(newAnswer) {
 		return;
 	}
 	if (current === newAnswer) {
-		removeValue(activeUserStory+answerKey);
+		removeValue(activeUserStory+':'+answerKey);
 		setVoteStatus("FALSE");
 	} else {
-		saveValue(activeUserStory+answerKey, newAnswer);
+		saveValue(activeUserStory+':'+answerKey, newAnswer);
 		setVoteStatus("TRUE");
 	}
 }
