@@ -42,7 +42,7 @@ var Answers = {
 	FIVE: '5',
 	EIGHT: '8',
 	UNKNOWN: 'u',
-	COFFEE: 'c',
+	COFFEE: 'c'
 };
 var HOST = '//hangoutsapi.appspot.com/static/yesnomaybe';
 
