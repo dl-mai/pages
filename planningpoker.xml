@@ -465,15 +465,46 @@ function getUserHangoutId() {
 }
 /**
  * @ return {object}
- */
+ */ss
 function getAllUserStories (){
 	var allUserStories = {};
 	for (var key in state_) {
-		if(key.indexOf(':userStory') !== -1) {
+		var re = /\d+:userstory$/g;
+		var storyMatched = key.match(re);
+		console.log(storyMatched);
+
+		if(storyMatched.length > 0) {
 			allUserStories[key] = state_[key];
 		}
 	}
 	return allUserStories;
+}
+/**
+ *
+ * @param {?string=} storyID The key to get from the state object.
+ * @return {Array} Array of current Answers.
+ */
+function getAnswersById (storyID) {
+	var activeUserStory = getActiveUserStory();
+	var answerArray = {};
+	if(activeUserStory === null) {
+		return null
+	}
+	var re = /\w:userstory\w+:answers/g;
+	var answerList = activeUserStory.match(re);
+	console.log(answerList);
+	for(var answer in answerList ) {
+		answerArray.push(anser);
+	}
+	console.log(answer);
+	return answer;
+}
+/**
+ *
+ */
+function toggleAnswer() {
+	var activeUserStory = getActiveUserStory();
+
 }
 /**
  * Renders the app.
