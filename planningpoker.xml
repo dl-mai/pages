@@ -465,7 +465,7 @@ function getUserHangoutId() {
 }
 /**
  * @ return {object}
- */ss
+ */
 function getAllUserStories (){
 	var allUserStories = {};
 	for (var key in state_) {
