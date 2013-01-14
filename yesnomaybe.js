@@ -34,14 +34,15 @@ DEFAULT_STATUS[Answers.THREE] = '3';
 DEFAULT_STATUS[Answers.FIVE] = '5';
 DEFAULT_STATUS[Answers.EIGHT] = '8';
 DEFAULT_STATUS[Answers.UNKNOWN] = 'No idea!';
-DEFAULT_STATUS[Answers.COFFEE] = 'Need Coffee!';
+DEFAULT_STATUS[Answers.COFFEE] = 'Coffee!';
+
 
 /**
  * The maximum length allowed for user status.
  * @const
  * @type {number}
  */
-var MAX_STATUS_LENGTH = 20;
+var MAX_STATUS_LENGTH = 255;
 
 /**
  * Whether the user is currently editing his status.
@@ -49,6 +50,12 @@ var MAX_STATUS_LENGTH = 20;
  * @private
  */
 var statusVisible_ = false;
+/**
+ * Whether the user is currently editing a userstory.
+ * @type {boolean}
+ * @private
+ */
+var userStoryVisible_ = false;
 
 /**
  * Shared state of the app.
@@ -86,11 +93,32 @@ var statusForm_ = null;
 var statusInput_ = null;
 
 /**
+ * The form that contains the status input element.
+ * @type {Element}
+ * @private
+ */
+var userStoryForm_ = null;
+
+/**
+ * The element used to input status messages.
+ * @type {Element}
+ * @private
+ */
+var userStoryInput_ = null;
+
+/**
  * The container for the app controls.
  * @type {Element}
  * @private
  */
 var container_ = null;
+
+/**
+ * The container for the app controls.
+ * @type {Element}
+ * @private
+ */
+var userStoryList_ = null;
 
 /**
  * Executes the provided function after a minor delay.
@@ -236,13 +264,18 @@ function onAnswer(newAnswer) {
 	var myId = getUserHangoutId();
 
 	var answerKey = makeUserKey(myId, 'answer');
-	var current = getState(answerKey);
-
+	var activeUserStory = getActiveUserStory();
+	var current = getState(activeUserStory+answerKey);
+	console.dir(activeUserStory);
+	if(activeUserStory === null) {
+		console.log("no active story");
+		return;
+	}
 	if (current === newAnswer) {
-		removeValue(answerKey);
+		removeValue(activeUserStory+answerKey);
 		setVoteStatus("FALSE");
 	} else {
-		saveValue(answerKey, newAnswer);
+		saveValue(activeUserStory+answerKey, newAnswer);
 		setVoteStatus("TRUE");
 	}
 }
@@ -279,12 +312,44 @@ function setVoteStatus(message) {
 	saveValue(makeUserKey(getUserHangoutId(), 'voteStatus'), message);
 }
 
+/**
+ * @param {!string} userStoryID.
+ * @return {string} The user story.
+ */
+function getUserStory(userStoryID) {
+	return getState(makeUserKey(userStoryID, 'userStory'));
+}
+
+/**
+ * Sets the status for the current user.
+ * @param {!string} message The user's new status.
+ */
+function setUserStory(message) {
+	saveValue(makeUserKey(new Date().getTime(), 'userStory'), message);
+}
+
+/**
+ * @param {!string} participantId The temporary id of a Participant.
+ * @return {string} The status of the given Participant.
+ */
+function getActiveUserStory() {
+	return getState('activeUserStory');
+}
+
+/**
+ * Sets the status for the current user.
+ * @param {!string} id The user's new status.
+ */
+function setActiveUserStory(id) {
+	saveValue('activeUserStory', id);
+}
 
 /**
  * Displays the input allowing a user to set his status.
  * @param {!Element} linkElement The link that triggered this handler.
  */
 function onSetStatus(linkElement) {
+	console.dir(linkElement);
 	statusVisible_ = true;
 	statusInput_.fadeIn(500);
 	$(linkElement).parent('p').hide();
@@ -312,6 +377,38 @@ function onSubmitStatus() {
 }
 
 /**
+ * Displays the input allowing a user to set his status.
+ * @param {!Element} linkElement The link that triggered this handler.
+ */
+function onSetUserStory(linkElement) {
+	console.dir(linkElement);
+	userStoryVisible_ = true;
+	userStoryInput_.fadeIn(500);
+	$(linkElement).parent('p').hide();
+	$(linkElement).parent('p').parent().append(userStoryInput_);
+	userStoryInput_.val(getUserStory(getUserHangoutId()));
+	// Since faceIn is a black box, focus & select only if the input is already
+	// visible.
+	userStoryInput_.filter(':visible').focus().select();
+}
+
+/**
+ * Sets the user's status message and hides the input element.
+ */
+function onSubmitUserStory() {
+	if (userStoryVisible_) {
+		userStoryVisible_ = false;
+		var userStoryVal = userStoryInput_.val();
+		userStoryVal = userStoryVal.length < MAX_STATUS_LENGTH ? userStoryVal :
+			userStoryVal.substr(0, MAX_STATUS_LENGTH);
+		setUserStory(userStoryVal);
+		userStoryForm_.append(userStoryInput_);
+		userStoryInput_.hide();
+
+		render();
+	}
+}
+/**
  * Gets the value of opt_stateKey in the shared state, or the entire state
  * object if opt_stateKey is null or not supplied.
  * @param {?string=} opt_stateKey The key to get from the state object.
@@ -337,18 +434,62 @@ function getMetadata(opt_metadataKey) {
  * @return {string} The user's ephemeral id.
  */
 function getUserHangoutId() {
-	return gapi.hangout.getParticipantId();
+	return gapi.hangout.getLocalParticipantId();
 }
+/**
+ * @ return {object}
+ */
+function getAllUserStories (){
+	var allUserStories = {};
+	for (var key in state_) {
+		var re = /\w+:userstory$/g;
+		var storyMatched = key.match(re);
+		console.log(storyMatched);
 
+		if(storyMatched.length > 0) {
+			allUserStories[key] = state_[key];
+		}
+	}
+	return allUserStories;
+}
+/**
+ *
+ * @param {?string=} storyID The key to get from the state object.
+ * @return {Array} Array of current Answers.
+ */
+function getAnswersById (storyID) {
+	var activeUserStory = getActiveUserStory();
+	var answerArray = {};
+	if(activeUserStory === null) {
+		return null
+	}
+	var re = /\w:userstory\w+:answers/g;
+	var answerList = activeUserStory.match(re);
+	console.log(answerList);
+	for(var answer in answerList ) {
+		answerArray.push(anser);
+	}
+	console.log(answer);
+	return answer;
+}
+/**
+ *
+ */
+function toggleAnswer() {
+	var activeUserStory = getActiveUserStory();
+
+}
 /**
  * Renders the app.
  */
 function render() {
 	if (!state_ || !metadata_ || !participants_ || !container_) {
+		console.log("nope");
 		return;
 	}
 
 	if (statusVisible_) {
+		console.log("nope visible");
 		// Wait until we're done editing status, otherwise everything will render,
 		// messing up our edit.
 		return;
@@ -373,7 +514,8 @@ function render() {
 		var p = participants_[i];
 		// Temporary id, corresponds to getUserHangoutId().
 		var answerKey = makeUserKey(p.id, 'answer');
-		var answer = getState(answerKey);
+		var activeUserStory = getActiveUserStory();
+		var answer = getState(activeUserStory+':'+answerKey);
 		var meta = getMetadata(answerKey);
 		if (answer && data[answer]) {
 			data[answer].push(p);
@@ -407,7 +549,7 @@ function render() {
 
 	container_
 		.empty()
-		.append(createUserStory(data),createAnswersTable(data));
+		.append(createUserStory(data), createAddUserStory(), createAnswersTable(data));
 }
 
 /**
@@ -463,11 +605,47 @@ function prepareAppDOM() {
 
 	statusInput_.keypress(function(e) {
 		if (e.which === 13) {
-			defer(onSubmitStatus);
+				defer(onSubmitStatus);
 		}
 		e.stopPropagation();
 	}).blur(function(e) {
 			onSubmitStatus();
+			e.stopPropagation();
+		}).mousedown(function(e) {
+			e.stopPropagation();
+		}).hide();
+
+	// userStory DOM
+	userStoryInput_ = $('<input />')
+		.attr({
+			'id': 'userStory-input',
+			'type': 'text',
+			'maxlength': MAX_STATUS_LENGTH
+		});
+	userStoryForm_ = $('<form />')
+		.attr({
+			'action': '',
+			'id': 'userStory-form'
+		})
+		.append(userStoryInput_);
+
+	var userStoryDiv = $('<div />')
+		.attr('id', 'userStory-box')
+		.addClass('userStory-box')
+		.append(userStoryForm_);
+
+	userStoryForm_.submit(function() {
+		onSubmitUserStory();
+		return false;
+	});
+
+	userStoryInput_.keypress(function(e) {
+		if (e.which === 13) {
+				defer(onSubmitUserStory());
+		}
+		e.stopPropagation();
+	}).blur(function(e) {
+			onSubmitUserStory();
 			e.stopPropagation();
 		}).mousedown(function(e) {
 			e.stopPropagation();
@@ -480,8 +658,11 @@ function prepareAppDOM() {
 		if (statusVisible_) {
 			onSubmitStatus();
 		}
+		else if(userStoryVisible_) {
+			onSubmitUserStory();
+		}
 		e.stopPropagation();
-	}).append(container_,statusDiv);
+	}).append(container_,statusDiv, userStoryDiv);
 }
 
 /**
@@ -490,19 +671,71 @@ function prepareAppDOM() {
  *     user story.
  * @return {Element} The DOM element displaying the app's main interface.
  */
-function createUserStory(data) {
-	var userStory = $('<div />');
-	var headLine = $('<h2 />')
+function createUserStory (Data){
+	var storyListDOM = $('<ul />')
+	var storyList = getAllUserStories();
+	console.log("bla");
+	console.dir(storyList);
+
+	try{
+		for(var story in storyList ) {
+			var ansLink = $('<a />')
+				.attr('href', '#')
+				.css('background-color', 'red')
+				.text('Activate')
+				.click(function() {
+					return false;
+				});
+
+			var showBtn = $('<div />')
+				.addClass('button')
+				.css('width', '200px')
+				.append(ansLink)
+				.mouseup(function() {
+						ansLink.css('background-color','green');
+						setActiveUserStory(story);
+						console.log("pressed");
+					}
+				);
+			var userStorySingle = $('<li />')
+				.append($('<p/>').text(storyList[story] + ' ('+0+'/'+ participants_.length+')'), showBtn);
+			storyListDOM.append(userStorySingle);
+		}
+	} catch (e) {
+		console.dir(e);
+	}
+	return storyListDOM;
+}
+
+
+/**
+ * Creates the DOM element that shows the current user story
+ * @param {!Object.<!string, *>} data The information used to populate the
+ *     user story.
+ * @return {Element} The DOM element displaying the app's main interface.
+ */
+function createAddUserStory(data) {
+	var userStory = $('<div />')
+		.attr('class', 'story-list');
+	var headLine = $('<p />')
 		.text('Create new user story');
+	var statusText = '';
+	var hideButtonHandler = function() {
+		return function() {
+			$('.respondList').show();
+			console.log("pressed");
+		};
+	};
+
 	userStory.append(headLine);
 	var triggerLink = $('<a href="#" class="link" />')
 		.text(statusText ? 'Edit' : 'Add Story')
 		.click(function() {
-			onSetStatus(this);
+			onSetUserStory(this);
 			return false;
 		});
 
-	statusAnchor.append(triggerLink);
+	headLine.append(triggerLink);
 	return userStory;
 }
 /**
@@ -648,7 +881,6 @@ function createParticipantElement(participant) {
 		statusAnchor.append(triggerLink);
 	}
 	var color = 'white';
-	console.log(getVoteStatus(participant.id));
 	if(getVoteStatus(participant.id) == 'FALSE') {
 		color = 'red';
 	} else if (getVoteStatus(participant.id) == 'TRUE') {
@@ -664,15 +896,16 @@ function createParticipantElement(participant) {
 
 (function() {
 	if (gapi && gapi.hangout) {
-
 		var initHangout = function(apiInitEvent) {
 			if (apiInitEvent.isApiReady) {
 				prepareAppDOM();
-
+				console.dir(state_);
+				getAllUserStories();
 				gapi.hangout.data.onStateChanged.add(function(stateChangeEvent) {
 					updateLocalDataState(stateChangeEvent.state,
 						stateChangeEvent.metadata);
 					console.dir(state_);
+					getAllUserStories();
 				});
 				gapi.hangout.onParticipantsChanged.add(function(partChangeEvent) {
 					updateLocalParticipantsData(partChangeEvent.participants);
