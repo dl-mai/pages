@@ -442,7 +442,7 @@ function getUserHangoutId() {
 function getAllUserStories (){
 	var allUserStories = {};
 	for (var key in state_) {
-		var re = /\w+:userstory$/g;
+		var re = /\d+:userstory$/g;
 		var storyMatched = key.match(re);
 		console.log(storyMatched);
 
