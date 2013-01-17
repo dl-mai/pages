@@ -909,11 +909,10 @@ function createParticipantElement(participant) {
 	console.dir(getAnswersById(getActiveUserStory()+":"+participant.id));
 	if(getAnswersById(getActiveUserStory()+":"+participant.id) == null) {
 		color = 'red';
+	} else if(getActiveUserStory() =='undefined') {
+		color = 'white';
 	} else {
 		color = 'green';
-	}
-	else {
-		color = 'white';
 	}
 
 		return $('<li />').append(avatar, name, statusAnchor)
