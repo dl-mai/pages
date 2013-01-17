@@ -470,8 +470,6 @@ function getAllUserStories (){
 	for (var key in state_) {
 		var re = /\w+:userStory$/g;
 		var storyMatched = key.match(re);
-		console.log(storyMatched);
-
 		if(storyMatched != null) {
 			allUserStories[key] = state_[key];
 		}
