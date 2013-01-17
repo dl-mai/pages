@@ -908,7 +908,7 @@ function createParticipantElement(participant) {
 	console.log("this is shit");
 	if(getActiveUserStory() =='undefined') {
 		color = 'white';
-	} else if(getAnswersById(getActiveUserStory()+":"+participant.id)) {
+	} else if(getAnswersById(getActiveUserStory()+":"+participant.id != null)) {
 		color = 'red';
 	} else {
 		color = 'green';
