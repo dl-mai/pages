@@ -732,7 +732,7 @@ function createUserStory (Data){
 			storyListDOM.append(userStorySingle);
 		}
 	} catch (e) {
-		console.dir(e);
+			console.dir(e);
 	}
 	return storyListDOM;
 }
