@@ -905,6 +905,8 @@ function createParticipantElement(participant) {
 		statusAnchor.append(triggerLink);
 	}
 	var color = 'white';
+	console.log("this is shit");
+	console.dir(getAnswersById(getActiveUserStory()+":"+participant.id);
 	if(getAnswersById(getActiveUserStory()+":"+participant.id) == null) {
 		color = 'red';
 	} else {
