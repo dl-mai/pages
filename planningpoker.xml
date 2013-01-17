@@ -707,7 +707,7 @@ function createUserStory (Data){
 			console.dir(story);
 			console.dir(getActiveUserStory());
 			if(getActiveUserStory() == getActiveUserStory()) {
-				color = "#00FFf1";
+				color = "#00FFF1";
 			}
 			var ansLink = $('<a />')
 				.attr('href', '#')
