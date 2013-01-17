@@ -723,6 +723,7 @@ function createUserStory (Data){
 				.append(ansLink)
 				.mouseup(function() {
 						ansLink.css('background-color','green');
+						console.dir(story);
 						setActiveUserStory(story);
 						console.log("pressed");
 					}
