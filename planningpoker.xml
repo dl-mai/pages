@@ -295,7 +295,7 @@ function onAnswer(newAnswer) {
 	var current = getState(activeUserStory+answerKey);
 	console.dir("jjira");
 	console.dir(activeUserStory);
-	if(activeUserStory == null) {
+	if(activeUserStory) {
 		console.log("no active story");
 		return;
 	}
