@@ -719,6 +719,7 @@ function createUserStory (Data){
 
 			var showBtn = $('<div />')
 				.addClass('button')
+				.attr("id", story)
 				.css('width', '200px')
 				.append(ansLink)
 				.mouseup(function() {
