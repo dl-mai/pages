@@ -301,7 +301,7 @@ function onAnswer(newAnswer) {
 		removeValue(activeUserStory+":"+answerKey);
 		setVoteStatus("FALSE");
 	} else {
-		saveValue(activeUserStory+":"+answerKey, newAnswer);
+		saveValue(activeUserStory+":"answerKey, newAnswer);
 		setVoteStatus("TRUE");
 	}
 }
@@ -905,13 +905,13 @@ function createParticipantElement(participant) {
 		statusAnchor.append(triggerLink);
 	}
 	var color = 'white';
-	console.log("this is shit");
-	if(getActiveUserStory() =='undefined') {
-		color = 'white';
-	} else if(getAnswersById(getActiveUserStory()+":"+participant.id != null)) {
+	if(getVoteStatus(participant.id) == 'FALSE') {
 		color = 'red';
-	} else {
+	} else if (getVoteStatus(participant.id) == 'TRUE') {
 		color = 'green';
+	}
+	else {
+		color = 'white';
 	}
 
 		return $('<li />').append(avatar, name, statusAnchor)
