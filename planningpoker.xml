@@ -907,7 +907,7 @@ function createParticipantElement(participant) {
 	var color = 'white';
 	if(getAnswersById(getActiveUserStory()+":"+participant.id) == null) {
 		color = 'red';
-	} else (getAnswersById(getActiveUserStory()+":"+participant.id) == 'TRUE') {
+	} else {
 		color = 'green';
 	}
 	else {
