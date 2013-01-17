@@ -906,12 +906,9 @@ function createParticipantElement(participant) {
 	}
 	var color = 'white';
 	console.log("this is shit");
-	console.dir(getActiveUserStory());
-	console.dir("what");
-	console.dir(getAnswersById(getActiveUserStory()+":"+participant.id));
 	if(getActiveUserStory() =='undefined') {
 		color = 'white';
-	} else if() {
+	} else if(getAnswersById(getActiveUserStory()+":"+participant.id)) {
 		color = 'red';
 	} else {
 		color = 'green';
