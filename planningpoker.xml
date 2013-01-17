@@ -909,10 +909,10 @@ function createParticipantElement(participant) {
 	console.dir(getActiveUserStory());
 	console.dir("what");
 	console.dir(getAnswersById(getActiveUserStory()+":"+participant.id));
-	if(getAnswersById(getActiveUserStory()+":"+participant.id) == null) {
-		color = 'red';
-	} else if(getActiveUserStory() =='undefined') {
+	if(getActiveUserStory() =='undefined') {
 		color = 'white';
+	} else if() {
+		color = 'red';
 	} else {
 		color = 'green';
 	}
