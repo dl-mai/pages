@@ -703,9 +703,15 @@ function createUserStory (Data){
 
 	try{
 		for(var story in storyList ) {
+			var color = "#ff0000";
+			console.dir(story);
+			console.dir(getActiveUserStory());
+			if(getActiveUserStory() == getActiveUserStory()) {
+				color = "#";
+			}
 			var ansLink = $('<a />')
 				.attr('href', '#')
-				.css('background-color', 'red')
+				.css('background-color', color)
 				.text('Activate')
 				.click(function() {
 					return false;
