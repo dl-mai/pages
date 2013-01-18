@@ -302,7 +302,7 @@ function onAnswer(newAnswer) {
 		setVoteStatus("FALSE");
 	} else {
 		console.log(activeUserStory+":"+answerKey);
-		saveValue(activeUserStory+":"+answerKey, newAnswer);
+		saveValue(answerKey, newAnswer);
 		setVoteStatus("TRUE");
 	}
 }
