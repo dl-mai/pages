@@ -492,9 +492,9 @@ function getAnswersById (storyID) {
 		var re = /\w+:userStory\w+:answer$/g;
 		console.log(key);
 		var answerMatched = key.match(re);
+		console.log(answerMatched);
 		if(answerMatched != null) {
 //			answerList[key] = state_[key];
-			console.log(answerMatched);
 			answerList.push(state_[key]);
 		}
 	}
