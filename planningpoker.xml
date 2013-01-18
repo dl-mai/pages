@@ -716,7 +716,8 @@ function createUserStory (Data){
 	try{
 		for(var story in storyList ) {
 			var color = "#ff0000";
-			console.dir(story);
+			var tempStory = story;
+			console.dir(tempStory);
 			if(story == getActiveUserStory()) {
 				color = "#00FFF1";
 			}
@@ -730,7 +731,7 @@ function createUserStory (Data){
 
 			var showBtn = $('<div />')
 				.addClass('button')
-				.attr("id", story)
+				.attr("id", tempStory)
 				.css('width', '200px')
 				.append(ansLink)
 				.mouseup(function() {
