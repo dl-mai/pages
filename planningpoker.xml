@@ -344,7 +344,7 @@ function setVoteStatus(message) {
  * @return {string} The user story.
  */
 function getUserStory(userStoryID) {
-	return getState(makeUserKey(userStoryID, 'userStory'));
+	return getState(makeUserKey(userStoryID, 'uS'));
 }
 
 /**
@@ -352,7 +352,7 @@ function getUserStory(userStoryID) {
  * @param {!string} message The user's new status.
  */
 function setUserStory(message) {
-	saveValue(makeUserKey(new Date().getTime(), 'userStory'), message);
+	saveValue(makeUserKey(new Date().getTime(), 'uS'), message);
 }
 
 /**
