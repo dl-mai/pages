@@ -704,6 +704,15 @@ function createUserStory (Data){
 	console.log("bla");
 	console.dir(storyList);
 
+	var getButtonMouseUpHandler = function(ans) {
+		return function() {
+			console.log("this");
+			console.dir(this);
+			$(this).removeClass('selected');
+			onAnswer(ans);
+		};
+	};
+
 	try{
 		for(var story in storyList ) {
 			var color = "#ff0000";
@@ -725,9 +734,8 @@ function createUserStory (Data){
 				.css('width', '200px')
 				.append(ansLink)
 				.mouseup(function() {
-						ansLink.css('background-color','green');
 						console.dir(story);
-						setActiveUserStory(story);
+						getButtonMouseUpHandler(story);
 						console.log("pressed");
 					}
 				);
