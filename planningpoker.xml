@@ -701,13 +701,9 @@ function prepareAppDOM() {
 function createUserStory (Data){
 	var storyListDOM = $('<ul />')
 	var storyList = getAllUserStories();
-	console.log("bla");
-	console.dir(storyList);
 
 	var getButtonMouseUpHandler = function(ans) {
 		return function() {
-			console.log("this");
-			console.dir(ans);
 			$(this).removeClass('selected');
 			setActiveUserStory(ans);
 		};
