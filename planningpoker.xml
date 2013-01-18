@@ -295,17 +295,17 @@ function onAnswer(newAnswer) {
 
 	var answerKey = makeUserKey(myId, 'answer');
 	var activeUserStory = getActiveUserStory();
-	var current = getState(activeUserStory+answerKey);
+	var current = getState(activeUserStory+"-"+answerKey);
 	if(typeof  activeUserStory =="undefined") {
 		console.log("no active story");
 		return;
 	}
 	if (current === newAnswer) {
-		removeValue(activeUserStory+""+answerKey);
+		removeValue(activeUserStory+"-"+answerKey);
 		setVoteStatus("FALSE");
 	} else {
-		console.log(activeUserStory+""+answerKey);
-		saveValue(activeUserStory+""+answerKey, newAnswer);
+		console.log(activeUserStory+"-"+answerKey);
+		saveValue(activeUserStory+"-"+answerKey, newAnswer);
 		setVoteStatus("TRUE");
 	}
 }
