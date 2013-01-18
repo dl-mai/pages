@@ -346,7 +346,7 @@ function setVoteStatus(message) {
  * @return {string} The user story.
  */
 function getUserStory(userStoryID) {
-	return getState(makeUserKey(userStoryID, 'uS'));
+	return getState(makeUserKey(userStoryID, 'userStory'));
 }
 
 /**
@@ -354,7 +354,7 @@ function getUserStory(userStoryID) {
  * @param {!string} message The user's new status.
  */
 function setUserStory(message) {
-	saveValue(makeUserKey(new Date().getTime(), 'uS'), message);
+	saveValue(makeUserKey(new Date().getTime(), 'userStory'), message);
 }
 
 /**
@@ -471,7 +471,7 @@ function getUserHangoutId() {
 function getAllUserStories (){
 	var allUserStories = {};
 	for (var key in state_) {
-		var re = /\w+:uS$/g;
+		var re = /\w+:userStory$/g;
 		var storyMatched = key.match(re);
 		if(storyMatched != null) {
 			allUserStories[key] = state_[key];
