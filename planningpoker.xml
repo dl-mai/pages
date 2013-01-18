@@ -301,9 +301,9 @@ function onAnswer(newAnswer) {
 		removeValue(activeUserStory+""+answerKey);
 		setVoteStatus("FALSE");
 	} else {
-		console.log(activeUserStory+":"+answerKey);
 		saveValue(activeUserStory+":"+answerKey, newAnswer);
 		setVoteStatus("TRUE");
+		console.dir(getAnswersById(getActiveUserStory()));
 	}
 }
 
@@ -508,7 +508,7 @@ function toggleAnswer() {
  */
 function render() {
 	if (!state_ || !metadata_ || !participants_ || !container_) {
-		console.log("nope");
+		console.log("empty state");
 		return;
 	}
 
