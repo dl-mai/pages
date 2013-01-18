@@ -713,7 +713,6 @@ function createUserStory (Data){
 		for(var story in storyList ) {
 			var color = "#ff0000";
 			var tempStory = story;
-			console.dir(tempStory);
 			if(story == getActiveUserStory()) {
 				color = "#00FFF1";
 			}
@@ -757,7 +756,6 @@ function createAddUserStory(data) {
 	var hideButtonHandler = function() {
 		return function() {
 			$('.respondList').show();
-			console.log("pressed");
 		};
 	};
 
@@ -787,8 +785,6 @@ function createAnswersTable(data) {
 	};
 	var getButtonMouseUpHandler = function(ans) {
 		return function() {
-			console.log("this");
-			console.dir(this);
 			$(this).removeClass('selected');
 			onAnswer(ans);
 		};
@@ -935,7 +931,6 @@ function createParticipantElement(participant) {
 		var initHangout = function(apiInitEvent) {
 			if (apiInitEvent.isApiReady) {
 				prepareAppDOM();
-				console.dir(state_);
 				getAllUserStories();
 				gapi.hangout.data.onStateChanged.add(function(stateChangeEvent) {
 					updateLocalDataState(stateChangeEvent.state,
