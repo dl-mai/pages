@@ -709,7 +709,7 @@ function createUserStory (Data){
 			console.log("this");
 			console.dir(this);
 			$(this).removeClass('selected');
-			onAnswer(ans);
+			setActiveUserStory(story);
 		};
 	};
 
