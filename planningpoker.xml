@@ -707,7 +707,7 @@ function createUserStory (Data){
 	var getButtonMouseUpHandler = function(ans) {
 		return function() {
 			console.log("this");
-			console.dir(this);
+			console.dir(ans);
 			$(this).removeClass('selected');
 			setActiveUserStory(ans);
 		};
