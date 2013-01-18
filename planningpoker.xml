@@ -735,8 +735,8 @@ function createUserStory (Data){
 				.css('width', '200px')
 				.append(ansLink)
 				.mouseup(function() {
-						console.dir(story);
-						getButtonMouseUpHandler(story);
+						console.dir(tempStory);
+						getButtonMouseUpHandler(tempStory);
 						console.log("pressed");
 					}
 				);
