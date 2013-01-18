@@ -303,7 +303,7 @@ function onAnswer(newAnswer) {
 	} else {
 		console.log(activeUserStory+":"+answerKey);
 		saveValue(activeUserStory+":"+answerKey, newAnswer);
-		setVoteStatus("TRUE");
+		setVoteStatus("TUE");
 	}
 }
 
