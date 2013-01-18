@@ -487,7 +487,7 @@ function getAnswersById (storyID) {
 	if(activeUserStory === null) {
 		return null
 	}
-	var re = /\w:userStory\w+:answers/g;
+	var re = /\w:userStory\w+:answer/g;
 	var answerList = activeUserStory.match(re);
 	console.log(answerList);
 	for(var answer in answerList ) {
