@@ -495,7 +495,7 @@ function getAnswersById (storyID) {
 		console.log(answerMatched);
 		if(answerMatched != null) {
 //			answerList[key] = state_[key];
-			answerList.push(state_[key]);
+			answerList[key](state_[key]);
 		}
 	}
 	console.log(answerList);
