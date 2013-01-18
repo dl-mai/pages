@@ -708,7 +708,6 @@ function createUserStory (Data){
 		for(var story in storyList ) {
 			var color = "#ff0000";
 			console.dir(story);
-			console.dir(getActiveUserStory());
 			if(story == getActiveUserStory()) {
 				color = "#00FFF1";
 			}
