@@ -301,6 +301,7 @@ function onAnswer(newAnswer) {
 		removeValue(activeUserStory+":"+answerKey);
 		setVoteStatus("FALSE");
 	} else {
+		console.log(activeUserStory+":"+answerKey);
 		saveValue(activeUserStory+":"+answerKey, newAnswer);
 		setVoteStatus("TRUE");
 	}
