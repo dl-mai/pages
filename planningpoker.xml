@@ -376,7 +376,6 @@ function setActiveUserStory(id) {
  * @param {!Element} linkElement The link that triggered this handler.
  */
 function onSetStatus(linkElement) {
-	console.dir(linkElement);
 	statusVisible_ = true;
 	statusInput_.fadeIn(500);
 	$(linkElement).parent('p').hide();
@@ -491,7 +490,7 @@ function getAnswersById (storyID) {
 	var answerList = activeUserStory.match(re);
 	console.log(answerList);
 	for(var answer in answerList ) {
-		answerArray.push(anser);
+		answerArray.push(answer);
 	}
 	console.log(answer);
 	return answer;
