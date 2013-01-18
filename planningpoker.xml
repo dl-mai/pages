@@ -407,7 +407,6 @@ function onSubmitStatus() {
  * @param {!Element} linkElement The link that triggered this handler.
  */
 function onSetUserStory(linkElement) {
-	console.dir(linkElement);
 	userStoryVisible_ = true;
 	userStoryInput_.fadeIn(500);
 	$(linkElement).parent('p').hide();
