@@ -484,6 +484,7 @@ function getAllUserStories (){
 function getAnswersById (storyID) {
 	var activeUserStory = getActiveUserStory();
 	var answerList = {};
+	console.log(activeUserStory);
 	if(activeUserStory == "undefined") {
 		return null;
 	}
