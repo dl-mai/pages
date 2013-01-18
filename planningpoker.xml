@@ -295,7 +295,7 @@ function onAnswer(newAnswer) {
 
 	var answerKey = makeUserKey(myId, 'answer');
 	var activeUserStory = getActiveUserStory();
-	var current = getState(activeUserStory+"c"+answerKey);
+	var current = getState(activeUserStory+""+answerKey);
 	if(typeof  activeUserStory =="undefined") {
 		console.log("no active story");
 		return;
