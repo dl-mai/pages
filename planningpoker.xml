@@ -483,17 +483,18 @@ function getAllUserStories (){
  */
 function getAnswersById (storyID) {
 	var activeUserStory = getActiveUserStory();
-	var answerArray = {};
-	if(activeUserStory === null) {
-		return null
+	var answerList = {};
+	if(activeUserStory == "undefined") {
+		return null;
+	}for (var key in state_) {
+		var re = /\w:userStory\w+:answer$/g;
+		var answerMatched = key.match(re);
+		if(answerMatched != null) {
+//			answerList[key] = state_[key];
+			answerList.push(state_[key]);
+		}
 	}
-	var re = /\w:userStory\w+:answer$/g;
-	var answerList = activeUserStory.match(re);
 	console.log(answerList);
-	for(var answer in answerList ) {
-		answerArray.push(answer);
-	}
-	console.log(answer);
 	return answer;
 }
 
