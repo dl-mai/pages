@@ -494,6 +494,7 @@ function getAnswersById (storyID) {
 		var answerMatched = key.match(re);
 		if(answerMatched != null) {
 //			answerList[key] = state_[key];
+			console.log(answerMatched);
 			answerList.push(state_[key]);
 		}
 	}
