@@ -488,6 +488,7 @@ function getAnswersById (storyID) {
 		return null;
 	}for (var key in state_) {
 		var re = /\w:userStory\w+:answer$/g;
+		console.log(key);
 		var answerMatched = key.match(re);
 		if(answerMatched != null) {
 //			answerList[key] = state_[key];
