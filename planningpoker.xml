@@ -734,12 +734,7 @@ function createUserStory (Data){
 				.attr("id", tempStory)
 				.css('width', '200px')
 				.append(ansLink)
-				.mouseup(function() {
-						console.dir(tempStory);
-						getButtonMouseUpHandler(tempStory);
-						console.log("pressed");
-					}
-				);
+				.mouseup(getButtonMouseUpHandler(tempStory));
 			var userStorySingle = $('<li />')
 				.append($('<p/>').text(storyList[story] + ' ('+0+'/'+ participants_.length+')'), showBtn);
 			storyListDOM.append(userStorySingle);
