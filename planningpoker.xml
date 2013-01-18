@@ -495,7 +495,7 @@ function getAnswersById (storyID) {
 		}
 	}
 	console.log(answerList);
-	return answer;
+	return answerList;
 }
 
 /**
