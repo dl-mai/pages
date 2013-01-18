@@ -199,7 +199,8 @@ var submitDelta = null;
 	 *     string value.
 	 */
 	var prepareForSave = function(keyOrState, opt_value) {
-		var state = null
+		var state = null;
+		console.log("prepareforSAve");
 		console.log(keyOrState);
 		console.log(opt_value);
 		if (typeof keyOrState === 'string') {
