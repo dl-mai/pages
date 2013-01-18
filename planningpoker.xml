@@ -301,11 +301,10 @@ function onAnswer(newAnswer) {
 		return;
 	}
 	if (current === newAnswer) {
-		removeValue(activeUserStory+"c"+answerKey);
+		removeValue(activeUserStory+""+answerKey);
 		setVoteStatus("FALSE");
 	} else {
-		console.log(activeUserStory+"c"+answerKey);
-		saveValue(activeUserStory+"c"+answerKey, newAnswer);
+		saveValue(activeUserStory+""+answerKey, newAnswer);
 		setVoteStatus("TRUE");
 	}
 }
