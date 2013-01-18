@@ -497,6 +497,22 @@ function getAnswersById (storyID) {
 	return answer;
 }
 /**
+ * @ param {?string=} storyID The key to get from the state object.
+ * @ return {Array} Array of current Answers.
+ */
+function getAllAnswersByStory (storyID){
+	var allUserStories = {};
+	for (var key in state_) {
+		var re = /\w+:userStory$/g;
+		var storyMatched = key.match(re);
+		if(storyMatched != null) {
+			allUserStories[key] = state_[key];
+		}
+	}
+	return allUserStories;
+}
+
+/**
  *
  */
 function toggleAnswer() {
