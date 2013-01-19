@@ -734,7 +734,7 @@ function createUserStory (Data){
 				.append(ansLink)
 				.mouseup(getButtonMouseUpHandler(tempStory));
 			var userStorySingle = $('<li />')
-				.append($('<p/>').text(storyList[tempStory] + ' ('+0+'/'+ participants_.length+')'), showBtn);
+				.append($('<p/>').text(storyList[tempStory] + ' ('+getAnswersById(tempStory)+'/'+ participants_.length+')'), showBtn);
 			storyListDOM.append(userStorySingle);
 		}
 	} catch (e) {
