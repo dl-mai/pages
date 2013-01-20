@@ -484,6 +484,7 @@ function getAllUserStories (){
  */
 function getEstimatePoints (answerList) {
 	var activeUserStory = getActiveUserStory();
+	var estimateValue = 0;
 	if(activeUserStory == "undefined") {
 		return null;
 	}
