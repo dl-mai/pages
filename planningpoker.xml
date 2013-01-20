@@ -576,18 +576,18 @@ function render() {
 		total: 0,
 		responded: false
 	};
-	for(var key in Answers) {
-		data[key] = [];
-	}
-//	data[Answers.ZERO] = [];
-//	data[Answers.HALF] = [];
-//	data[Answers.ONE] = [];
-//	data[Answers.TWO] = [];
-//	data[Answers.THREE] = [];
-//	data[Answers.FIVE] = [];
-//	data[Answers.EIGHT] = [];
-//	data[Answers.UNKNOWN] = [];
-//	data[Answers.COFFEE] = [];
+//	for(var key in Answers) {
+//		data[key] = [];
+//	}
+	data[Answers.ZERO] = [];
+	data[Answers.HALF] = [];
+	data[Answers.ONE] = [];
+	data[Answers.TWO] = [];
+	data[Answers.THREE] = [];
+	data[Answers.FIVE] = [];
+	data[Answers.EIGHT] = [];
+	data[Answers.UNKNOWN] = [];
+	data[Answers.COFFEE] = [];
 
 	var myId = getUserHangoutId();
 	for (var i = 0, iLen = participants_.length; i < iLen; ++i) {
