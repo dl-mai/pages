@@ -498,14 +498,13 @@ function getEstimatePoints (answerList) {
 
 	for (var answer in answerList) {
 		console.log(answer);
+		if(answer == answerEnum) {
+			data[answer] ++;
+		}
 		var answerMatched = answer.match(re);
 		console.log(answerMatched);
-		if(answerMatched != null) {
-//			answerList[key] = state_[key];
-			answerList[answer](state_[answer]);
-		}
 	}
-	return answerList;
+	return 0;
 }
 
 /**
