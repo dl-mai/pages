@@ -994,7 +994,6 @@ function createParticipantElement(participant) {
 				gapi.hangout.onParticipantsChanged.add(function(partChangeEvent) {
 					updateLocalParticipantsData(partChangeEvent.participants);
 				});
-
 				if (!state_) {
 					var state = gapi.hangout.data.getState();
 					var metadata = gapi.hangout.data.getStateMetadata();
