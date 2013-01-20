@@ -506,9 +506,20 @@ function getEstimatePoints (answerList) {
 		var answerMatched = answer.match(re);
 		console.log(answerMatched);
 	}
-	for( var key in data) {
-		if(answerCount < key)
-	}
+	var maxCount = function (element, index, array){
+		console.log(element);
+		console.log(index);
+		if(answerCount < key){
+			estimateValue = index;
+			answerCount = key;
+		} else if(answerCount == key) {
+			console.log("doubled estimate vote");
+		}
+		else {
+			console.log("answerCount too low");
+		}
+	};
+	data.forEach(maxCount);
 	return 0;
 }
 
@@ -876,6 +887,7 @@ function createAnswersTable(data) {
 	var hideButtonHandler = function() {
 		return function() {
 			$('.respondList').show();
+			console.log("pressed hide button");
 		};
 	};
 	var ansLink = $('<a />')
