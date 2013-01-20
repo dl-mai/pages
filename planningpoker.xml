@@ -476,6 +476,30 @@ function getAllUserStories (){
 	}
 	return allUserStories;
 }
+
+/**
+ *
+ * @param {?string=} answerList The key to get from the state object.
+ * @return Int Array of current Answers.
+ */
+function getEstimatePoints (answerList) {
+	var activeUserStory = getActiveUserStory();
+	if(activeUserStory == "undefined") {
+		return null;
+	}
+	for (var answer in answerList) {
+		var re = /.+:userStory.+:answer$/g;
+		console.log(answer);
+		var answerMatched = answer.match(re);
+		console.log(answerMatched);
+		if(answerMatched != null) {
+//			answerList[key] = state_[key];
+			answerList[answer](state_[answer]);
+		}
+	}
+	return answerList;
+}
+
 /**
  *
  * @param {?string=} storyID The key to get from the state object.
@@ -529,15 +553,18 @@ function render() {
 		total: 0,
 		responded: false
 	};
-	data[Answers.ZERO] = [];
-	data[Answers.HALF] = [];
-	data[Answers.ONE] = [];
-	data[Answers.TWO] = [];
-	data[Answers.THREE] = [];
-	data[Answers.FIVE] = [];
-	data[Answers.EIGHT] = [];
-	data[Answers.UNKNOWN] = [];
-	data[Answers.COFFEE] = [];
+	for(var key in Answers) {
+		data[key] = [];
+	}
+//	data[Answers.ZERO] = [];
+//	data[Answers.HALF] = [];
+//	data[Answers.ONE] = [];
+//	data[Answers.TWO] = [];
+//	data[Answers.THREE] = [];
+//	data[Answers.FIVE] = [];
+//	data[Answers.EIGHT] = [];
+//	data[Answers.UNKNOWN] = [];
+//	data[Answers.COFFEE] = [];
 
 	var myId = getUserHangoutId();
 	for (var i = 0, iLen = participants_.length; i < iLen; ++i) {
