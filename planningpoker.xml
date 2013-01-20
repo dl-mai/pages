@@ -479,7 +479,7 @@ function getAllUserStories (){
 
 /**
  *
- * @param {?string=} answerList The key to get from the state object.
+ * @param {?Object=} answerList The key to get from the state object.
  * @return Int Array of current Answers.
  */
 function getEstimatePoints (answerList) {
