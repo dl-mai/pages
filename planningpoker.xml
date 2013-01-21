@@ -503,11 +503,11 @@ function getEstimatePoints (answerList) {
 		var answerMatched = answer.match(re);
 		console.log(answerMatched);
 	}
-	for(var key in data) {
-		if(answerCount < data[key]){
-			estimateValue = key;
-			answerCount = data[key];
-		} else if(answerCount == data[key]) {
+	for(var ansVal in data) {
+		if(answerCount < data[ansVal]){
+			estimateValue = ansVal;
+			answerCount = data[ansVal];
+		} else if(answerCount == data[ansVal]) {
 			console.log("doubled estimate vote");
 		}
 		else {
