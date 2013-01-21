@@ -503,20 +503,17 @@ function getEstimatePoints (answerList) {
 		var answerMatched = answer.match(re);
 		console.log(answerMatched);
 	}
-	var maxCount = function (element, index, array){
-		console.log(element);
-		console.log(index);
-		if(answerCount < key){
-			estimateValue = index;
-			answerCount = key;
+	for(var key in data) {
+		if(answerCount < data[key]){
+			estimateValue = key;
+			answerCount = data[key];
 		} else if(answerCount == key) {
 			console.log("doubled estimate vote");
 		}
 		else {
 			console.log("answerCount too low");
 		}
-	};
-	data.forEach(maxCount);
+	}
 	return estimateValue;
 }
 
