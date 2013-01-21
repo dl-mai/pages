@@ -498,9 +498,8 @@ function getEstimatePoints (answerList) {
 	for (var answer in answerList) {
 		console.log(answer);
 		data[Answers[answer]] ++;
-		var answerMatched = answer.match(re);
-		console.log(answerMatched);
 	}
+	console.dir(data);
 	for(var ansVal in data) {
 		if(answerCount < data[ansVal]){
 			estimateValue = ansVal;
