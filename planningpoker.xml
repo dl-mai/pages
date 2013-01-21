@@ -491,8 +491,6 @@ function getEstimatePoints (answerList) {
 	}
 
 	var data = {
-		total: 0,
-		responded: false
 	};
 	for(var key in Answers) {
 		data[key] = 0;
