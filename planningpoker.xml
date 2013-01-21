@@ -507,7 +507,7 @@ function getEstimatePoints (answerList) {
 		if(answerCount < data[key]){
 			estimateValue = key;
 			answerCount = data[key];
-		} else if(answerCount == key) {
+		} else if(answerCount == data[key]) {
 			console.log("doubled estimate vote");
 		}
 		else {
