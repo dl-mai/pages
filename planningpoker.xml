@@ -774,6 +774,7 @@ function createUserStory (Data){
 				.append(ansLink)
 				.mouseup(getButtonMouseUpHandler(tempStory));
 			console.log(getAnswersById(tempStory));
+			console.log("tempstory");
 			var userStorySingle = $('<li />')
 				.append($('<p/>').text(storyList[tempStory] + ' ('+Object.keys(getAnswersById(tempStory)).length+'/'+ participants_.length+')'+"Estimate value: "+ getEstimatePoints(getAnswersById(tempStory))), showBtn);
 			storyListDOM.append(userStorySingle);
