@@ -496,7 +496,7 @@ function getEstimatePoints (answerList) {
 	}
 	console.dir(data);
 	for (var answer in answerList) {
-		console.log(answer);
+		console.log(data[Answers[answer]]);
 		data[Answers[answer]]++;
 	}
 	console.dir(data);
