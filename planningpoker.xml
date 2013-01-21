@@ -512,7 +512,7 @@ function getEstimatePoints (answerList) {
 			console.log("answerCount too low");
 		}
 	}
-	return estimateValue;
+	return 0;
 }
 
 /**
