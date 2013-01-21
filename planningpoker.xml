@@ -533,8 +533,7 @@ function getAnswersById (storyID) {
 		var answerMatched = key.match(re);
 		console.log(answerMatched);
 		if(answerMatched != null) {
-//			answerList[key] = state_[key];
-			answerList[key] =(state_[key];
+			answerList[key] = state_[key];
 		}
 	}
 	console.log(answerList);
