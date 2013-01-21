@@ -518,7 +518,7 @@ function getEstimatePoints (answerList) {
 /**
  *
  * @param {?string=} storyID The key to get from the state object.
- * @return {Array} Array of current Answers.
+ * @return {Object} Array of current Answers.
  */
 function getAnswersById (storyID) {
 	var activeUserStory = getActiveUserStory();
