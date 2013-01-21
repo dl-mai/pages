@@ -497,9 +497,7 @@ function getEstimatePoints (answerList) {
 
 	for (var answer in answerList) {
 		console.log(answer);
-		if(answer == answerEnum) {
-			data[answer] ++;
-		}
+		data[answer] ++;
 		var answerMatched = answer.match(re);
 		console.log(answerMatched);
 	}
