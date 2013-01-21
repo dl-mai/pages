@@ -525,7 +525,8 @@ function getAnswersById (storyID) {
 		return null;
 	}
 	for (var key in state_) {
-		var re = /:userStory.+:answer$/g;
+		var re = /.+:userStory.+:answer$/g;
+		re = new RegExp();
 		console.log(key);
 		var answerMatched = key.match(re);
 		console.log(answerMatched);
