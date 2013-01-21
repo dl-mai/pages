@@ -492,7 +492,7 @@ function getEstimatePoints (answerList) {
 
 	var data = {};
 	for(var key in Answers) {
-		data[key] = 0;
+		data[Answers[key]] = 0;
 	}
 
 	for (var answer in answerList) {
