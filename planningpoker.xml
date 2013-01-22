@@ -823,6 +823,7 @@ function createAnswersTable(data) {
 			onAnswer(ans);
 		};
 	};
+	console.dir();
 
 	// Create buttons for each possible response.
 	for (var key in Answers) {
