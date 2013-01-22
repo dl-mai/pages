@@ -294,7 +294,6 @@ function onAnswer(newAnswer) {
 	var activeUserStory = getActiveUserStory();
 	var current = getState(activeUserStory+""+answerKey);
 	if(typeof  activeUserStory =="undefined") {
-		console.log("no active story");
 		return;
 	}
 	if (current === newAnswer) {
@@ -492,12 +491,9 @@ function getEstimatePoints (answerList) {
 	for(var key in Answers) {
 		data[Answers[key]] = 0;
 	}
-	console.dir(data);
 	for (var answer in answerList) {
-		console.log(data[answerList[answer]]);
 		data[answerList[answer]]++;
 	}
-	console.dir(data);
 	for(var ansVal in data) {
 		if(answerCount < data[ansVal]){
 			estimateValue = ansVal;
@@ -520,21 +516,17 @@ function getEstimatePoints (answerList) {
 function getAnswersById (storyID) {
 	var activeUserStory = getActiveUserStory();
 	var answerList = {};
-	console.log(activeUserStory);
 	if(activeUserStory == "undefined") {
 		return null;
 	}
 	for (var key in state_) {
 		var re = /.+:userStory.+:answer$/g;
 		re = new RegExp(storyID+".+:answer$","g");
-		console.log(key);
 		var answerMatched = key.match(re);
-		console.log(answerMatched);
 		if(answerMatched != null) {
 			answerList[key] = state_[key];
 		}
 	}
-	console.log(answerList);
 	return answerList;
 }
 
@@ -772,8 +764,6 @@ function createUserStory (Data){
 				.css('width', '200px')
 				.append(ansLink)
 				.mouseup(getButtonMouseUpHandler(tempStory));
-			console.log(getAnswersById(tempStory));
-			console.log("tempstory");
 			var userStorySingle = $('<li />')
 				.append($('<p/>').text(storyList[tempStory] + ' ('+Object.keys(getAnswersById(tempStory)).length+'/'+ participants_.length+')'+"Estimate value: "+ getEstimatePoints(getAnswersById(tempStory))), showBtn);
 			storyListDOM.append(userStorySingle);
