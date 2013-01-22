@@ -594,7 +594,13 @@ function render() {
 			p.status = getStatusMessage(p.id) || '';
 			// The server stores a timestamp for us on each change. We'll use this
 			// value to display users in the order in which they answer.
-			p.sortOrder = meta.timestamp;
+			try {
+				p.sortOrder = meta.timestamp;
+			}
+			catch(e){
+				console.dir(e);
+			}
+
 		}
 	}
 
