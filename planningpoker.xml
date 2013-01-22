@@ -579,11 +579,12 @@ function render() {
 		console.log(activeUserStory+':'+answerKey);
 		try{
 			var answer = getState(activeUserStory+':'+answerKey);
+			console.log(answer);
+
 		}
 		catch (e) {
 			console.dir(e);
 		}
-		console.log(answer);
 		var meta = getMetadata(answerKey);
 		if (answer && data[answer]) {
 			data[answer].push(p);
