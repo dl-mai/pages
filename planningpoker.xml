@@ -598,6 +598,8 @@ function render() {
 				p.sortOrder = meta.timestamp;
 			}
 			catch(e){
+				console.log(p);
+				console.log(p);
 				console.dir(e);
 			}
 
