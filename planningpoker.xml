@@ -580,7 +580,7 @@ function render() {
 		try{
 			var answer = getState(activeUserStory+':'+answerKey);
 		}
-		catch (Exception e) {
+		catch (e) {
 			console.dir(e);
 		}
 		var meta = getMetadata(answerKey);
