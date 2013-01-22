@@ -580,7 +580,6 @@ function render() {
 		try{
 			var answer = getState(activeUserStory+':'+answerKey);
 			console.log(answer);
-
 		}
 		catch (e) {
 			console.dir(e);
