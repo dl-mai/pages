@@ -599,7 +599,8 @@ function render() {
 			}
 			catch(e){
 				console.log(p);
-				console.log(p);
+				console.log(meta);
+				console.log(meta);
 				console.dir(e);
 			}
 
