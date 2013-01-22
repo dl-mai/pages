@@ -578,27 +578,23 @@ function render() {
 		var activeUserStory = getActiveUserStory();
 		var answer = getState(activeUserStory+':'+answerKey);
 		var meta = getMetadata(answerKey);
-		try{
-			if (answer && data[answer]) {
-				data[answer].push(p);
-				if (p.id === myId) {
-					data.responded = true;
-				}
-				++data.total;
-
-				var name = p.person.displayName;
-				var parts = name.split('@');
-				if (parts && parts.length > 1) {
-					p.person.displayName = parts[0];
-				}
-
-				p.status = getStatusMessage(p.id) || '';
-				// The server stores a timestamp for us on each change. We'll use this
-				// value to display users in the order in which they answer.
-				p.sortOrder = meta.timestamp;
+		if (answer && data[answer]) {
+			data[answer].push(p);
+			if (p.id === myId) {
+				data.responded = true;
 			}
-		} catch (e){
-			console.dir(e);
+			++data.total;
+
+			var name = p.person.displayName;
+			var parts = name.split('@');
+			if (parts && parts.length > 1) {
+				p.person.displayName = parts[0];
+			}
+
+			p.status = getStatusMessage(p.id) || '';
+			// The server stores a timestamp for us on each change. We'll use this
+			// value to display users in the order in which they answer.
+			p.sortOrder = meta.timestamp;
 		}
 	}
 
